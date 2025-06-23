@@ -1,0 +1,25 @@
+MagPenguinDeployments.csv
+This dataset contains one row per penguin per breeding season. Some penguins were tracked in more than one breeding season.
+
+Columns:
+SeasonYear	Calendar year of the beginning of the breeding season (September-February). 
+PenguinID	ID number of the penguin.	
+PenguinSeq	Unique identifier of the penguin. Some penguins have more than one type of ID, hence more than one ID number.
+InstrumentSeq	Unique identifier of the deployment (penguin tracked in a breeding season).
+NTripPairsLong	Number of long (duration >= 1 day) trip pairs the penguin made during the deployment of the tracking tag.
+DistBetMean	Mean distance (km) between the endpoints of consecutive long trips by the penguin during the deployment.
+DistBetSD	Standard deviation of the distance between the endpoints of consecutive long trips by the penguin during the deployment. NA = not applicable (number of trip pairs = 1).
+DistBetMin	Minimum distance (km) between the endpoints of consecutive long trips by the penguin during the deployment.
+DistBetMax	Maximum distance (km) between the endpoints of consecutive long trips by the penguin during the deployment.
+InstrType	Type of tracking instrument: 1 = Argos PTT; 2 = GPS archival tag.
+InstrModel	Model of the tracking instrument. See paper for details.
+NFledged	Number of chicks that fledged: last seen after 10 January and weighed at least 1800 g.
+DurDaysMean	Mean duration (days) of trips during the deployment.
+TripDistMean	Mean straight-line distance (km) between the penguin's nest and the at-sea location farthest from the nest for each trip during the deployment (trip endpoints).
+BearingMean	Mean bearing (degrees) from the penguin's nest to the at-sea location farthest from the nest for each long trip (duration >= 1 day) during the deployment. North = 360. Arithmetic mean was used because long-trip bearings ranged from 8 to 153 degrees. It was not necessary to treat bearing as a circular variable.
+PenguinSex	Sex of the penguin: 1 = female; 0 = male.
+NumTrips	Number of trips recorded during the deployment.
+NumChicksDeploy	Number of chicks in the nest when the tracking tag was attached to the penguin (1 or 2).
+NumChicksStarved	Number of chicks that died of starvation (0 or 1; no penguin in this study had both chicks die of starvation).
+DeployDurDays	Duration of the tracking tag deployment (days).
+ChlaMean	Mean chlorophyll-a (mg/m^3) for the breeding season. NA = missing data.

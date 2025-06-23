@@ -33,7 +33,8 @@ You can install the development version of ecoteach like so:
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(ecoteach)
+# library(ecoteach)
+devtools::load_all()
 ## basic example code
 ```
 

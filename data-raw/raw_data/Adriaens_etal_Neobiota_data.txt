@@ -1,0 +1,71 @@
+Berberis aquifolium Management Treatment Dataset
+Dataset Overview
+This dataset contains experimental data from a management treatment study of Berberis aquifolium (Oregon grape) plants conducted across four heavily infested dune sites. The study evaluated the effectiveness of different management treatments on individual plants with limited clonal extension. Treatments were applied in April/May 2013, with regrowth assessments conducted after 6 months (November 2013) and 1 year (May 2014).
+
+Total observations: 127 treated clones
+Retrieved for analysis: 118 clones (9 could not be relocated)
+
+Variable Descriptions
+Identification and Location Variables
+p
+lant_id (String)
+Unique identifier for each individual B. aquifolium plant/clone
+
+region (String)
+Field code identifying the dune site where the plant was located
+
+x_proj (Float)
+X-coordinate of plant location (GPS projection)
+
+y_proj (Float)
+Y-coordinate of plant location (GPS projection)
+Treatment and Timing Variables
+
+date (String)
+Date when the plant was initially located and treated (April/May 2013)
+
+treatment (String)
+Management treatment applied to the plant:
+• DIG - Manual uprooting by digging with shovels
+• LEAF - Leaf spray treatment with 5% Roundup Max (450g/l glyphosate)
+• STUB - Stem treatment (cut and paint) with 5% glyphosate solution
+• SALT - Stem treatment with saturated salt (NaCl) solution
+
+Plant Morphology Variables
+
+height (Integer)
+Plant height measured in centimeters
+
+diameter (Integer)
+Clone diameter measured in centimeters (average: 85 cm, range: 10 cm - 6 m)
+
+n_stems (Integer)
+Number of stems counted per individual plant/clone
+Treatment Response Variables
+
+date_regrowth (String)
+Date of regrowth assessment (November 2013 or May 2014)
+
+regrowth (String)
+Category of stem regrowth response:
+• dead - No regrowth observed
+• limited regrowth - Some regrowth but restricted
+• vigorous regrowth - Strong regrowth response
+Experimental Design Notes
+
+Plants were located using a hand-held Garmin Foretrex 401 GPS
+Each plant was photographed and marked with a flag for relocation
+Treatments were alternated in sequence to ensure spatial separation (minimum 10 meters apart)
+All ramets within a clone received the same treatment
+The 5% glyphosate concentration used exceeds the standard recommendation (1.5-2%) for leaf treatment
+Salt treatment quantities were designed to remain below natural soil salt concentration levels
+Treatment effectiveness was assessed at 6 months and 1 year post-treatment
+
+Data Collection Period
+
+Initial treatment: April/May 2013
+First assessment: November 2013 (6 months post-treatment)
+Final assessment: May 2014 (1 year post-treatment)
+
+Missing Data
+Nine treated clones could not be retrieved during follow-up assessments, likely due to flag removal by site visitors. The remaining 118 clones were approximately equally distributed across sites and treatments.
