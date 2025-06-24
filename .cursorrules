@@ -1,24 +1,211 @@
 # R Package Development Rules for Cursor IDE
 
 ## Context
-You are helping develop an R package called "ecoteach" that contains curated educational datasets for ecology and agriculture students. The package follows CRAN standards.
+You are helping develop an R package called "ecoteach" that contains curated educational datasets for ecology and agriculture students. The package follows CRAN standards and uses modern R package development practices.
 
-## Current Package Status
-- Has 3 datasets: magellanic_penguins, berberis_treatment, vulture_diet
-- All datasets are CRAN-compliant (<5MB, CC0 licensed, fully documented)
-- Package passes devtools::check() with 0 errors/warnings/notes
+## Package Structure
+```
+ecoteach/
+├── DESCRIPTION          # Package metadata
+├── NAMESPACE           # Exports/imports (auto-generated)
+├── LICENSE             # MIT license
+├── README.Rmd          # Package description (knits to README.md)
+├── R/                  # R functions and data documentation
+├── data/               # Processed datasets (.rda files)
+├── data-raw/           # Raw data and processing scripts
+│   ├── raw_data/       # Original CSV and .bib files
+│   ├── dataset_helper.R # Automation functions
+│   └── prepare_*.R     # Dataset preparation scripts
+├── man/                # Auto-generated documentation
+├── tests/              # Package tests
+└── .cursorrules        # This file
+```
 
-## Adding New Datasets - Quick Workflow
-1. Copy files to data-raw/raw_data/ (CSV + .bib files)
-2. Run: R -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('name', 'file.csv', 'file.bib')"
-3. Edit the generated preparation script with proper factor levels
-4. Run: R -e "source('data-raw/prepare_name.R')"
-5. Edit the generated documentation
-6. Run: R -e "devtools::document(); devtools::check()"
+## Core Principles
 
-## Code Standards
-- Use snake_case for all names
-- Factors must have correct levels (check unique(column) first)
-- Include @examples with \donttest{}
-- No Unicode characters in examples
-- Always cite with DOI
+### 1. CRAN Compliance
+- All datasets must be <5MB individually
+- Use CC0 or compatible licenses only
+- Complete documentation required for all datasets
+- No browser storage APIs (localStorage, sessionStorage)
+- Use `\donttest{}` around slow examples
+
+### 2. Dataset Standards
+- Data stored as compressed .rda files in data/ folder
+- Raw data processing scripts in data-raw/
+- Each dataset needs documentation in R/ folder
+- Use factors for categorical variables
+- Include proper citations with DOI
+- Add meaningful teaching examples
+
+### 3. Automation Workflow
+The package includes automation helpers in `data-raw/dataset_helper.R`:
+
+```r
+# Quick setup with automatic .bib parsing
+auto_dataset_setup("dataset_name", "file.csv", "file.bib")
+
+# Manual setup  
+quick_dataset_setup("dataset_name", "file.csv", "description", "doi", year, "citation")
+
+# Preview .bib file contents
+preview_bib("file.bib")
+```
+
+## When Writing R Code
+
+### Package Development Commands
+Always use these standard commands:
+```r
+# Load development tools
+library(devtools)
+library(usethis)
+
+# Generate documentation from roxygen comments
+devtools::document()
+
+# Check package for errors
+devtools::check()
+
+# Load package for testing
+devtools::load_all()
+
+# Install package locally
+devtools::install()
+
+# Build README from README.Rmd
+devtools::build_readme()
+```
+
+### Data Preparation Scripts
+Template for `data-raw/prepare_*.R` files:
+```r
+# Data preparation for [DATASET NAME]
+# Source: [AUTHORS] ([YEAR]) - Repository
+# DOI: [DOI]
+# License: CC0 1.0 Universal
+
+library(readr)
+library(dplyr)
+library(usethis)
+
+# Read raw data
+raw_data <- read_csv("data-raw/raw_data/filename.csv")
+
+# Examine structure
+str(raw_data)
+head(raw_data)
+
+# Clean data
+dataset_name <- raw_data %>%
+  mutate(
+    # Convert factors with proper levels
+    categorical_var = factor(categorical_var, levels = c("level1", "level2")),
+    # Convert dates with proper format
+    date_var = as.Date(date_var, format = "%d/%m/%Y")
+  ) %>%
+  arrange(logical_order)
+
+# Save to package
+usethis::use_data(dataset_name, overwrite = TRUE)
+```
+
+### Data Documentation Template
+Template for `R/dataset_name.R` files:
+```r
+#' Dataset Title
+#'
+#' Detailed description of the dataset, including context,
+#' collection methods, and educational applications.
+#'
+#' @format A data frame with X rows and Y variables:
+#' \describe{
+#'   \item{var1}{Description of variable 1}
+#'   \item{var2}{Description of variable 2}
+#' }
+#' @source Author, A. et al. (YEAR). Title. Publisher. \doi{DOI}
+#' @examples
+#' \donttest{
+#' data(dataset_name)
+#' head(dataset_name)
+#' summary(dataset_name)
+#' 
+#' # Teaching example
+#' plot(dataset_name$x, dataset_name$y)
+#' }
+"dataset_name"
+```
+
+## File Operations
+
+### Always Check These Before Coding:
+1. What's the exact structure of the CSV data?
+2. What are the unique values in categorical columns?
+3. What date format is used?
+4. Are there missing values?
+
+### Common File Paths:
+- Raw data: `data-raw/raw_data/`
+- Preparation scripts: `data-raw/prepare_*.R`
+- Documentation: `R/*.R`
+- Generated data: `data/*.rda`
+
+## Git Workflow
+```bash
+# Check status
+git status
+
+# Add files
+git add .
+
+# Commit with meaningful message
+git commit -m "Add [dataset_name] dataset with documentation"
+
+# Push to GitHub
+git push
+```
+
+## Error Handling
+
+### Common Issues:
+1. **Factor level mismatches**: Always check `unique(column)` before setting factor levels
+2. **Date parsing errors**: Verify date format with sample data
+3. **Missing values**: Handle NAs appropriately
+4. **Documentation errors**: Use exact syntax for roxygen2
+
+### Debugging Steps:
+1. Check data structure: `str(data)`
+2. Check unique values: `unique(data$column)`
+3. Check for NAs: `sum(is.na(data$column))`
+4. Test documentation: `devtools::document()`
+5. Run package check: `devtools::check()`
+
+## Code Style
+
+### Naming Conventions:
+- Datasets: `snake_case` (e.g., `vulture_diet`)
+- Functions: `snake_case` (e.g., `auto_dataset_setup`)
+- Variables: `snake_case`
+- Files: `snake_case.R`
+
+### Comments:
+- Use `#'` for roxygen documentation
+- Use `#` for code comments
+- Include source citations in preparation scripts
+- Explain complex data transformations
+
+## Testing
+- Always test data loading: `data(dataset_name)`
+- Verify data structure: `str(dataset_name)`
+- Check examples work: Run code in @examples
+- Run full package check: `devtools::check()`
+
+## When Helping with Code:
+1. Always verify file paths exist
+2. Check data structure before assuming column names
+3. Use proper roxygen2 syntax for documentation
+4. Include CRAN-compliant examples
+5. Follow the established automation workflow
+6. Test that code actually works
+
+Remember: This is an educational package, so examples should be meaningful for teaching ecology and agriculture concepts.
