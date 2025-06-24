@@ -1,9 +1,8 @@
-
-# Data preparation for Habitat occupancy of the critically endangered Chinese
-# Source: [AUTHOR] et al. (2024) - Dryad repository  
+# Data preparation for Habitat occupancy of the critically endangered Chinese pangolin
+# Source: Subba, Asmit and Tamang, Ganesh and Lama, Sony and Basnet, Nabin and Kyes, Randall C. and Khanal, Laxman (2024) - Dryad repository  
 # DOI: 10.5061/DRYAD.73N5TB34T
 # License: CC0 1.0 Universal
-# Prepared: 2025-06-24
+# Prepared: 2023-06-24
 
 library(readr)
 library(dplyr)
@@ -18,20 +17,51 @@ str(raw_data)
 cat("\nFirst few rows:\n")
 head(raw_data)
 cat("\nUnique values in key columns:\n")
-# Add specific columns to check:
-# sapply(raw_data[c("column1", "column2")], function(x) unique(x))
+cat("Habitat type unique values:", paste(unique(raw_data$`Habitat type`), collapse = ", "), "\n")
+cat("Habitat structure unique values:", paste(unique(raw_data$`Habitat structure`), collapse = ", "), "\n")
+cat("Human Disturbance Index range:", min(raw_data$`Human Disturbance Index`), "-", max(raw_data$`Human Disturbance Index`), "\n")
+cat("Termite mounds range:", min(raw_data$`Termite mounds`), "-", max(raw_data$`Termite mounds`), "\n")
 
 # Clean and prepare the data for package inclusion
 pangolin_habitat <- raw_data %>%
-  # Convert categorical variables to factors
-  mutate(
-    # Add your factor conversions here
-    # column_name = as.factor(column_name)
+  # Rename columns to remove spaces and make them more R-friendly
+  rename(
+    object_id = `OBJECT ID`,
+    replicate_1 = `Replicate 1`,
+    replicate_2 = `Replicate 2`,
+    replicate_3 = `Replicate 3`,
+    replicate_4 = `Replicate 4`,
+    replicate_5 = `Replicate 5`,
+    replicate_6 = `Replicate 6`,
+    distance_to_water = `Distance to water body`,
+    terrain_ruggedness = `Terrain Ruggedness Index`,
+    mean_ndvi = `Mean NDVI `,
+    habitat_type = `Habitat type`,
+    habitat_structure = `Habitat structure`,
+    human_disturbance_index = `Human Disturbance Index`,
+    termite_mounds = `Termite mounds`
   ) %>%
-  # Convert dates if needed
-  # mutate(date_column = as.Date(date_column, format = "%d/%m/%Y")) %>%
-  # Arrange logically
-  arrange()  # Add appropriate columns
+  # Create a detection history column
+  mutate(
+    detection_sum = replicate_1 + replicate_2 + replicate_3 + 
+                    replicate_4 + replicate_5 + replicate_6,
+    detected = ifelse(detection_sum > 0, 1, 0)
+  ) %>%
+  # Convert categorical variables to factors with meaningful labels
+  mutate(
+    habitat_type = factor(habitat_type, 
+                         levels = c("SF", "MF", "HS", "AG"),
+                         labels = c("Sal Forest", "Mixed Forest", "Human Settlement", "Agricultural Land")),
+    habitat_structure = factor(habitat_structure,
+                              levels = c("T", "C"),
+                              labels = c("Terrace", "Cliff")),
+    # Create disturbance level category
+    disturbance_level = cut(human_disturbance_index, 
+                           breaks = c(-0.01, 0.25, 0.5, 0.75, 1.01),
+                           labels = c("Low", "Medium-Low", "Medium-High", "High"))
+  ) %>%
+  # Arrange logically by object_id
+  arrange(object_id)
 
 # Verify the cleaned data
 cat("\nCleaned data structure:\n")
@@ -41,9 +71,14 @@ str(pangolin_habitat)
 cat("\nMissing values per column:\n")
 sapply(pangolin_habitat, function(x) sum(is.na(x)))
 
+# Check detection statistics
+cat("\nDetection statistics:\n")
+cat("Number of sites with pangolin detected:", sum(pangolin_habitat$detected), "\n")
+cat("Percentage of sites with pangolin detected:", round(100 * sum(pangolin_habitat$detected) / nrow(pangolin_habitat), 2), "%\n")
+
 # Save to package data (compressed .rda format for CRAN)
 usethis::use_data(pangolin_habitat, overwrite = TRUE)
 
-cat("\n✅ Dataset '", dataset_name, "' prepared and saved!\n")
+cat("\n✅ Dataset 'pangolin_habitat' prepared and saved!\n")
 cat("Size of final dataset:", object.size(pangolin_habitat), "bytes\n")
 
