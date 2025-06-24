@@ -21,6 +21,10 @@ The package includes the following datasets:
 \item \code{\link{chimpanzee_cameras}}: Camera trap detection data for wild chimpanzees
 \item \code{\link{lion_reproduction}}: Reproductive data for Galapagos sea lions
 \item \code{\link{barnswallow_brightness}}: Plumage brightness data for barn swallows
+\item \code{\link{pangolin_habitat}}: Habitat occupancy data for Chinese pangolins
+\item \code{\link{whale_brains}}: Brain size evolution data for cetaceans
+\item \code{\link{elephant_farmers}}: Agricultural use metrics for elephants
+\item \code{\link{Dsimulans_matechoice}}: Mate copying data for fruit flies
 \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 }
 
@@ -74,6 +78,23 @@ Reproductive performance of a tropical apex predator in an unpredictable habitat
 Morosse, O., Tsunekage, T., Kenny-Duddela, H., Schield, D., Keller, K., Safran, R., & Levin, I. (2025).
 North American barn swallows pair, mate, and interact assortatively.
 \doi{10.5061/DRYAD.1G1JWSV8G}
+
+Subba, A., Tamang, G., Lama, S., Basnet, N., Kyes, R. C., & Khanal, L. (2024).
+Habitat occupancy of the critically endangered Chinese pangolin (Manis pentadactyla) under human disturbance
+in an urban environment: Implications for conservation.
+\doi{10.5061/DRYAD.73N5TB34T}
+
+Peacock, J., Waugh, D., Bajpai, S., & Thewissen, J. G. M. (2025).
+The evolution of hearing and brain size in Eocene whales.
+\doi{10.5061/DRYAD.SF7M0CGH1}
+
+Hahn, N. (2021).
+Elephant agricultural use metrics in Mara-Serengeti ecosystem.
+\doi{10.5061/DRYAD.RN8PK0PBN}
+
+Nöbel, S., & Kaufmann, T. (2025).
+Data from: Mate copying in Drosophila simulans.
+\doi{10.5061/DRYAD.ZS7H44JMC}
 }
 \author{
 \strong{Maintainer}: First Last \email{first.last@example.com}
