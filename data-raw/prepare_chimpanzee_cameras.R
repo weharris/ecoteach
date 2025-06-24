@@ -6,7 +6,6 @@
 
 library(readr)
 library(dplyr)
-library(tidyr)
 library(usethis)
 
 # Read the raw data
@@ -22,37 +21,58 @@ head(raw_data)
 # We need to reshape it to a more tidy format
 
 # First, let's get the basic camera information
-camera_info <- raw_data %>%
-  select(Camera, Latitude, Longitude, Method, Vegetation, Topography)
+camera_info <- raw_data[, c("Camera", "Latitude", "Longitude", "Method", "Vegetation", "Topography")]
 
-# Now reshape the data from wide to long format
-camera_detections <- raw_data %>%
-  # Convert to long format
-  pivot_longer(
-    cols = -c(Camera, Latitude, Longitude, Method, Vegetation, Topography),
-    names_to = "date",
-    values_to = "detection"
-  ) %>%
-  # Convert date strings to actual Date objects
-  mutate(
-    date = as.Date(date, format = "%d/%m/%Y")
-  ) %>%
-  # Sort by camera and date
-  arrange(Camera, date)
+# Now reshape the data from wide to long format using base R
+# Get date columns (all columns except the first 6)
+date_cols <- names(raw_data)[7:ncol(raw_data)]
+
+# Create empty data frame to store results
+camera_detections <- data.frame()
+
+# Loop through each camera
+for(i in 1:nrow(raw_data)) {
+  camera_row <- raw_data[i, ]
+  camera_id <- camera_row$Camera
+  
+  # For each date column, create a row
+  for(date_col in date_cols) {
+    detection_value <- camera_row[[date_col]]
+    
+    # Create a new row
+    new_row <- data.frame(
+      Camera = camera_id,
+      Latitude = camera_row$Latitude,
+      Longitude = camera_row$Longitude,
+      Method = camera_row$Method,
+      Vegetation = camera_row$Vegetation,
+      Topography = camera_row$Topography,
+      date = as.Date(date_col, format = "%d/%m/%Y"),
+      detection = detection_value,
+      stringsAsFactors = FALSE
+    )
+    
+    # Add to the result data frame
+    camera_detections <- rbind(camera_detections, new_row)
+  }
+}
+
+# Sort by camera and date
+camera_detections <- camera_detections[order(camera_detections$Camera, camera_detections$date), ]
 
 # Clean and prepare the data for package inclusion
-chimpanzee_cameras <- camera_detections %>%
-  # Convert categorical variables to factors
-  mutate(
-    Camera = as.factor(Camera),
-    Method = as.factor(Method),
-    Vegetation = as.factor(Vegetation),
-    Topography = as.factor(Topography),
-    # Convert detection to a factor with meaningful levels
-    detection = factor(detection, 
-                       levels = c(0, 1, NA), 
-                       labels = c("absent", "present", NA))
-  )
+chimpanzee_cameras <- camera_detections
+
+# Convert categorical variables to factors
+chimpanzee_cameras$Camera <- as.factor(chimpanzee_cameras$Camera)
+chimpanzee_cameras$Method <- as.factor(chimpanzee_cameras$Method)
+chimpanzee_cameras$Vegetation <- as.factor(chimpanzee_cameras$Vegetation)
+chimpanzee_cameras$Topography <- as.factor(chimpanzee_cameras$Topography)
+
+# Convert detection to a factor with meaningful levels
+chimpanzee_cameras$detection <- factor(chimpanzee_cameras$detection, 
+                                      levels = c(0, 1, NA), 
+                                      labels = c("absent", "present", NA))
 
 # Verify the cleaned data
 cat("\nCleaned data structure:\n")
@@ -60,7 +80,7 @@ str(chimpanzee_cameras)
 
 # Check for any missing values or issues
 cat("\nMissing values per column:\n")
-sapply(chimpanzee_cameras, function(x) sum(is.na(x)))
+print(sapply(chimpanzee_cameras, function(x) sum(is.na(x))))
 
 # Save to package data (compressed .rda format for CRAN)
 usethis::use_data(chimpanzee_cameras, overwrite = TRUE)
