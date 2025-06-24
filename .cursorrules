@@ -209,3 +209,31 @@ git push
 6. Test that code actually works
 
 Remember: This is an educational package, so examples should be meaningful for teaching ecology and agriculture concepts.
+## Working with Files in Cursor IDE (Windows Environment)
+
+### Effective File Creation/Editing Methods:
+1. **Use Rscript for file operations**: 
+   ```bash
+   Rscript -e "writeLines(c('line1', 'line2'), 'filename.R')"
+   ```
+
+2. **Run R scripts directly**:
+   ```bash
+   Rscript data-raw/prepare_dataset.R
+   ```
+
+3. **Use the dataset_helper.R functions**:
+   ```bash
+   Rscript -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+   ```
+
+### Avoid These Approaches:
+1. Do not use heredoc (`<<`) syntax in Windows Git Bash
+2. Avoid complex multiline commands in terminal
+3. Do not use echo with special characters/quotes without proper escaping
+
+### Best Practices:
+1. Create files through R functions when possible
+2. For complex file content, create the file first, then edit it
+3. Use existing templates and helper functions in dataset_helper.R
+4. Test commands with simple examples before running complex operations
