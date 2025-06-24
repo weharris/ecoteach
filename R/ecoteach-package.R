@@ -14,6 +14,7 @@
 #'   \item \code{\link{magellanic_penguins}}: Long-term monitoring data on Magellanic penguins
 #'   \item \code{\link{vulture_diet}}: Diet composition analysis of African vultures
 #'   \item \code{\link{chimpanzee_cameras}}: Camera trap detection data for wild chimpanzees
+#'   \item \code{\link{lion_reproduction}}: Reproductive data for Galapagos sea lions
 #'   \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 #' }
 #'
@@ -47,6 +48,10 @@
 #' Crunchant, A-S., Borchers, D., Kuehl, H., & Piel, A. K. (2020). 
 #' Listening and watching: do camera traps or acoustic sensors more efficiently detect wild chimpanzees in an open habitat?
 #' \doi{10.5061/dryad.5dv41ns34}
+#'
+#' Kalberer, S., Meise, K., Trillmich, F., & Krüger, O. (2018).
+#' Reproductive performance of a tropical apex predator in an unpredictable habitat.
+#' \doi{10.5061/DRYAD.6S48579}
 #'
 #' @examples
 #' # Load a dataset

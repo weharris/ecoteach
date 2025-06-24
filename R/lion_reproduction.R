@@ -1,0 +1,51 @@
+#' Galapagos Sea Lion Reproduction Data
+#'
+#' This dataset contains reproductive performance data for female Galapagos sea lions
+#' (Zalophus wollebaeki) collected over a 13-year period in the Galapagos archipelago.
+#' The data includes information on mother birth dates, body mass, age at first reproduction,
+#' and offspring details. This dataset was used to study life history traits and 
+#' reproductive trade-offs of this tropical apex predator in an unpredictable habitat.
+#'
+#' @format A data frame with 48 rows and 12 variables:
+#' \describe{
+#'   \item{MotherID}{Unique identifier for the mother sea lion}
+#'   \item{MotherBD}{Mother's birth date}
+#'   \item{exact}{Whether the birth date is exact ("Yes"), estimated ("No"), or unknown ("Unknown")}
+#'   \item{MotherBirthyear}{Year the mother was born}
+#'   \item{AgeAtCapture}{Age of the mother when first captured (in days)}
+#'   \item{AverageOneYearBodymass}{Average body mass of the mother at one year of age (in kg)}
+#'   \item{PupID}{Unique identifier for the pup}
+#'   \item{FirstPupBorn}{Date when the first pup was born}
+#'   \item{OffspringSex}{Sex of the offspring ("Male" or "Female")}
+#'   \item{SeenSince}{Year the mother was first observed}
+#'   \item{SeenUntil}{Year the mother was last observed}
+#'   \item{AFR}{Age at first reproduction (in years)}
+#' }
+#' @source Kalberer, Stephanie, Meise, Kristine, Trillmich, Fritz, & Krüger, Oliver (2018). 
+#'   Reproductive performance of a tropical apex predator in an unpredictable habitat. 
+#'   Dryad Digital Repository.
+#'   \doi{10.5061/DRYAD.6S48579}
+#' @examples
+#' \donttest{
+#' # Load the dataset
+#' data(lion_reproduction)
+#' 
+#' # Basic exploration
+#' head(lion_reproduction)
+#' summary(lion_reproduction)
+#' 
+#' # Calculate mean age at first reproduction
+#' mean(lion_reproduction$AFR)
+#' 
+#' # Compare age at first reproduction by offspring sex
+#' boxplot(AFR ~ OffspringSex, data = lion_reproduction,
+#'         main = "Age at First Reproduction by Offspring Sex",
+#'         ylab = "Age (years)")
+#'         
+#' # Relationship between mother's body mass and age at first reproduction
+#' plot(AverageOneYearBodymass ~ AFR, data = lion_reproduction,
+#'      main = "Body Mass vs. Age at First Reproduction",
+#'      xlab = "Age at First Reproduction (years)",
+#'      ylab = "Average Body Mass at One Year (kg)")
+#' }
+"lion_reproduction" 
