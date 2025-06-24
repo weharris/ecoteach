@@ -35,7 +35,7 @@ pangolin_habitat <- raw_data %>%
     replicate_6 = `Replicate 6`,
     distance_to_water = `Distance to water body`,
     terrain_ruggedness = `Terrain Ruggedness Index`,
-    mean_ndvi = `Mean NDVI `,
+    mean_ndvi = Mean_NDVI,
     habitat_type = `Habitat type`,
     habitat_structure = `Habitat structure`,
     human_disturbance_index = `Human Disturbance Index`,
