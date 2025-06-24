@@ -1,0 +1,16 @@
+Experimentor	Who did the experiment	SN (Sabine Nöbel)/TK (Tim Kaufmann)
+Date	Date of the experiment	
+TimeDemo	Beginning of the experiment	
+Chamber	Position in the box	A, B, C, D, E , F
+Device	Number of the set-up	
+Strain	Fly population	H (Haale (Saale)), S (Maison Salasar), D (Deyme)
+Treatment	Treatments	MC (mate copying = informed), C (control = uninformed)
+Temp	Temperature [°C] in the room	
+Humidity	Humidity [%] in the room	
+ColourDemo	Colour of the male copulating in the demonstration	G (green), P (pink), NA (no copulation)
+Colour1Court	Colour of the male that started the first courtship	G (green), P (pink), NA (no courtship)
+Colour2Court	Colour of the male that started the second courtship	G (green), P (pink), NA (no courtship)
+ColourTest	Colour of the male copulating in the test	G (green), P (pink), NA (no copulation)
+MCS	Mate-copying score	0 (observer female chose a different coloured male than the demonstrator), 1 (observer female chose the same coloured male as the demonstrator)
+
+\# Mate copying in Drosophila simulans Dataset DOI: [10.5061/dryad.zs7h44jmc](10.5061/dryad.zs7h44jmc) ## Description of the data and file structure We conducted behavioural observations of the mate choice decisions of \*Drosophila simulans\* females from three different populations to test whether they copy the mate choice of their conspecifics. ### Files and variables #### File: Data\_Dsim.xlsx \*\*Description:\*\*  ##### Variables | Variable | Explanation | Level | | :----------- | :--------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- | | Experimentor | Who did the experiment | SN (Sabine Nöbel)/TK (Tim Kaufmann) | | Date | Date of the experiment | | | TimeDemo | Beginning of the experiment | | | Chamber | Position in the box | A, B, C, D, E, F | | Device | Number of the set-up | | | Strain | Fly population | H (Haale (Saale)), S (Maison Salasar), D (Deyme) | | Treatment | Treatments | MC (mate copying = informed), C (control = uninformed) | | Temp | Temperature \[°C] in the room | | | Humidity | Humidity \[%] in the room | | | ColourDemo | Colour of the male copulating in the demonstration | G (green), P (pink), NA (no copulation) | | Colour1Court | Colour of the male that started the first courtship | G (green), P (pink), NA (no courtship) | | Colour2Court | Colour of the male that started the second courtship | G (green), P (pink), NA (no courtship) | | ColourTest | Colour of the male copulating in the test | G (green), P (pink), NA (no copulation) | | MCS | Mate-copying score | 0 (observer female chose a different coloured male than the demonstrator), 1 (observer female chose the same coloured male as the demonstrator) | ## Access information Other publicly accessible locations of the data: \* N/A Data was derived from the following sources: \* N/A
