@@ -1,9 +1,8 @@
-
-# Data preparation for Data from: North
-# Source: [AUTHOR] et al. (2025) - Dryad repository  
+# Data preparation for North American barn swallows pair, mate, and interact assortatively
+# Source: Morosse, Omar et al. (2025) - Dryad repository  
 # DOI: 10.5061/DRYAD.1G1JWSV8G
 # License: CC0 1.0 Universal
-# Prepared: 2025-06-24
+# Prepared: 2023-06-24
 
 library(readr)
 library(dplyr)
@@ -23,15 +22,10 @@ cat("\nUnique values in key columns:\n")
 
 # Clean and prepare the data for package inclusion
 barnswallow_brightness <- raw_data %>%
-  # Convert categorical variables to factors
-  mutate(
-    # Add your factor conversions here
-    # column_name = as.factor(column_name)
-  ) %>%
-  # Convert dates if needed
-  # mutate(date_column = as.Date(date_column, format = "%d/%m/%Y")) %>%
-  # Arrange logically
-  arrange()  # Add appropriate columns
+  # No categorical variables to convert to factors
+  # No date conversions needed
+  # Arrange by MaleID
+  arrange(MaleID)
 
 # Verify the cleaned data
 cat("\nCleaned data structure:\n")
@@ -44,6 +38,6 @@ sapply(barnswallow_brightness, function(x) sum(is.na(x)))
 # Save to package data (compressed .rda format for CRAN)
 usethis::use_data(barnswallow_brightness, overwrite = TRUE)
 
-cat("\n✅ Dataset '", dataset_name, "' prepared and saved!\n")
+cat("\n✅ Dataset 'barnswallow_brightness' prepared and saved!\n")
 cat("Size of final dataset:", object.size(barnswallow_brightness), "bytes\n")
 
