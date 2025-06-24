@@ -1,0 +1,45 @@
+===========================================================================================
+
+Description of Data: Elephant Agricultural Use Metrics in Mara-Serengeti Ecosystem 
+2021-10-06
+
+===========================================================================================
+
+* TableS3_Cluster_Data_Results_Hahn.csv 
+
+Agricultural use metrics and clustering results from the top 3 models in Hahn et al. 2021. Metrics are aggregated over the lifetime track of the individual. See Hahn et al. 2021 for methods details. Cluster assignments are 1 = Rare, 2 = Sporadic, 3 = Seasonal, 4 = Habitual. Data can be used to reproduce Guassian mixture model clustering and cutpoints in Hahn et al. 2021. 
+
+- subject_name: individual id
+- aggregate.mean: mean ag use 
+- aggregate.max: max ag use
+- ag.class.mean: cluster assignment using mean use clustering
+- ag.class.max: cluster assignment using max use clustering
+- ag.class.meanMax: cluster assignment using bivariate clustering of mean and max use
+
+
+* TableS4_Individual_Year_Classification_Hahn.csv
+
+Individual-year agricultural use metrics, space use, and elephant metadata. Final tactic classification results are shown for aggregate and yearly tactics for each individual (n=202). Cluster assignments are 1 = Rare, 2 = Sporadic, 3 = Seasonal, 4 = Habitual. Data can be used to reproduce individual-year mixture model clustering, agricultrual use models, and tactic change models in Hahn et al. 2021. 
+
+- subject_name: individual id
+- tactic.aggregate: tactic classification for lifetime GPS track of individual. Cluster assignments are 1 = Rare, 2 = Sporadic, 3 = Seasonal, 4 = Habitual.
+- season.year: year cuts (cut date April 1 of each year)
+- tactic.season: tactic classification for the associated year. Cluster assignments are 1 = Rare, 2 = Sporadic, 3 = Seasonal, 4 = Habitual.
+- year.begin/year.end: data start and stop dates for a given year. can be used to calcualte days tracked
+- n.fixes: number of GPS relocations for an individual in a given year. 
+- year.mean: mean ag use for a given year
+- year.max: maximum ag use from a 90-day moving average for a given year
+- year.delta: difference in mean and max ag use for a given year
+- year.mcp.area: MCP homerange for an individual in a given year
+- mu.daily.disp: mean daily displacement for an individual in a given year
+- subject_sex: sex of the individual 
+- subject_ageClass: age class of individual (see Hahn et al. 2021)
+- centroid.dist.meters: Distance from centroid of homerange to agriculture for an individual in a given year
+- tactic.prev: tactic of the previous year. NA indicates no previous tactic could be confirmed (See Hahn et al. 2021)
+- tactic.change: Whether an individual changed tactics (1) or stayed the same (0) between years. NA indicates a change could not be confirmed. 
+
+
+
+
+
+
