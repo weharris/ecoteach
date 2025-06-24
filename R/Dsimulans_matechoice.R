@@ -1,16 +1,34 @@
-
-#' Data from: Mate
+#' Mate Copying in Drosophila simulans
 #'
-#' [ADD DETAILED DESCRIPTION HERE]
+#' A dataset containing observations of mate choice decisions of \emph{Drosophila simulans} 
+#' females from three different populations to test whether they copy the mate choice of 
+#' their conspecifics. The study tested whether female fruit flies acquire a sexual 
+#' preference for a particular trait of a male after observing a single mating event.
+#' The experimental protocol involved a naïve, unmated female first observing a conspecific's 
+#' mate choice between one artificially colored green and one artificially colored pink male, 
+#' and subsequently being allowed to choose between two males of the same phenotype herself.
 #'
-#' @format A data frame with [X] rows and [Y] variables:
+#' @format A data frame with 383 rows and 14 variables:
 #' \describe{
-#'   \item{column1}{Description of column 1}
-#'   \item{column2}{Description of column 2}
-#'   [ADD ALL COLUMNS HERE]
+#'   \item{Experimentor}{Who conducted the experiment (SN: Sabine Nöbel, TK: Tim Kaufmann)}
+#'   \item{Date}{Date of the experiment}
+#'   \item{TimeDemo}{Beginning time of the experiment}
+#'   \item{Chamber}{Position in the experimental box (A-F)}
+#'   \item{Device}{Number of the experimental set-up}
+#'   \item{Strain}{Fly population: Haale (Saale), Maison Salasar, or Deyme}
+#'   \item{Treatment}{Experimental treatment: Mate copying (informed) or Control (uninformed)}
+#'   \item{Temp}{Temperature (°C) in the experimental room}
+#'   \item{Humidity}{Humidity (%) in the experimental room}
+#'   \item{ColourDemo}{Color of the male copulating in the demonstration: Green or Pink}
+#'   \item{Colour1Court}{Color of the male that started the first courtship: Green or Pink}
+#'   \item{Colour2Court}{Color of the male that started the second courtship: Green or Pink}
+#'   \item{ColourTest}{Color of the male copulating in the test phase: Green or Pink}
+#'   \item{MCS}{Mate-copying score: "Same color" (observer female chose the same colored male 
+#'              as the demonstrator) or "Different color" (observer female chose a different 
+#'              colored male than the demonstrator)}
 #' }
-#' @source Nöbel, Sabine and Kaufmann, Tim (2025). Data from: Mate. Dryad Digital Repository. 
-#'   \doi{10.5061/DRYAD.ZS7H44JMC}
+#' @source Nöbel, Sabine and Kaufmann, Tim (2025). Data from: Mate copying in Drosophila simulans. 
+#'   Dryad Digital Repository. \doi{10.5061/DRYAD.ZS7H44JMC}
 #' @examples
 #' \donttest{
 #' # Load the dataset
@@ -20,7 +38,21 @@
 #' head(Dsimulans_matechoice)
 #' summary(Dsimulans_matechoice)
 #' 
-#' # Add relevant examples here
+#' # Examine mate copying rates by treatment
+#' table(Dsimulans_matechoice$Treatment, Dsimulans_matechoice$MCS)
+#' 
+#' # Compare mate copying across different strains
+#' library(ggplot2)
+#' ggplot(Dsimulans_matechoice, aes(x = Strain, fill = MCS)) +
+#'   geom_bar(position = "fill") +
+#'   facet_wrap(~Treatment) +
+#'   labs(y = "Proportion", 
+#'        title = "Mate choice outcomes by strain and treatment")
+#'        
+#' # Analyze if environmental conditions affect mate copying
+#' boxplot(Temp ~ MCS, data = Dsimulans_matechoice, 
+#'         main = "Temperature effects on mate copying",
+#'         ylab = "Temperature (°C)")
 #' }
 "Dsimulans_matechoice"
 
