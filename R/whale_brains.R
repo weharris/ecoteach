@@ -37,14 +37,14 @@
 #' summary(whale_brains)
 #' 
 #' # Compare brain mass across taxonomic groups
-#' boxplot(brain_mass ~ taxonomic_group, data = whale_brains, 
+#' boxplot(whale_brains$brain_mass ~ whale_brains$taxonomic_group, 
 #'         main = "Brain Mass by Taxonomic Group",
 #'         ylab = "Brain Mass (g)", log = "y")
 #' 
 #' # Look at the relationship between brain mass and body mass
 #' # Using log scales to show allometric relationships
-#' plot(body_mass, brain_mass, data = whale_brains, 
-#'      log = "xy", col = as.numeric(taxonomic_group),
+#' plot(whale_brains$body_mass, whale_brains$brain_mass, 
+#'      log = "xy", col = as.numeric(whale_brains$taxonomic_group),
 #'      pch = 16, main = "Brain Mass vs. Body Mass",
 #'      xlab = "Body Mass (kg)", ylab = "Brain Mass (g)")
 #' legend("topleft", legend = levels(whale_brains$taxonomic_group), 
@@ -52,7 +52,7 @@
 #'        
 #' # Compare fossil and extant cetaceans
 #' cetaceans <- subset(whale_brains, taxonomic_group == "Cetacean")
-#' boxplot(brain_mass ~ time_period, data = cetaceans,
+#' boxplot(cetaceans$brain_mass ~ cetaceans$time_period,
 #'         main = "Brain Mass in Fossil vs. Extant Cetaceans",
 #'         ylab = "Brain Mass (g)", log = "y")
 #' }
