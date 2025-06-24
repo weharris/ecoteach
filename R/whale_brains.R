@@ -1,15 +1,31 @@
-
-#' The evolution of hearing and brain size in Eocene
+#' The Evolution of Hearing and Brain Size in Eocene Whales
 #'
-#' [ADD DETAILED DESCRIPTION HERE]
+#' A dataset containing endocranial volume and body mass measurements for various cetacean 
+#' (whale) species and other mammals. This dataset was compiled to study the evolution of 
+#' hearing and brain size in Eocene whales. It includes both extant (living) and fossil 
+#' species, with a focus on understanding how brain size evolved in relation to body mass 
+#' and hearing adaptations across different taxonomic groups. The dataset is particularly 
+#' valuable for teaching concepts in comparative anatomy, allometry, and cetacean evolution.
 #'
-#' @format A data frame with [X] rows and [Y] variables:
+#' Toothed whales (odontocetes) use high-frequency sounds to echolocate, differing 
+#' significantly from baleen whales (mysticetes), which use low-frequency sound for 
+#' long-distance communication. This dataset helps explore how hearing functioned in 
+#' ancestral archaeocetes, and when the specializations of modern species arose.
+#'
+#' @format A data frame with 269 rows and 9 variables:
 #' \describe{
-#'   \item{column1}{Description of column 1}
-#'   \item{column2}{Description of column 2}
-#'   [ADD ALL COLUMNS HERE]
+#'   \item{family}{Taxonomic family of the species}
+#'   \item{binomial_name}{Full taxonomic name for each species}
+#'   \item{common_name}{Common name for each species (NA for most fossil species)}
+#'   \item{endocranial_volume}{Endocranial volume in cubic centimeters (cc)}
+#'   \item{brain_mass}{Brain mass in grams}
+#'   \item{ocw_mm}{Occipital condyle width in millimeters}
+#'   \item{body_mass}{Body mass in kilograms}
+#'   \item{taxonomic_group}{Categorization as "Cetacean", "Hippopotamid", or "Other Mammal"}
+#'   \item{time_period}{Classification as "Extant" (living) or "Fossil" species}
 #' }
-#' @source Peacock, John and Waugh, David and Bajpai, Sunil and Thewissen, JGM (2025). The evolution of hearing and brain size in Eocene. Dryad Digital Repository. 
+#' @source Peacock, John and Waugh, David and Bajpai, Sunil and Thewissen, JGM (2025). 
+#'   The evolution of hearing and brain size in Eocene whales. Dryad Digital Repository. 
 #'   \doi{10.5061/DRYAD.SF7M0CGH1}
 #' @examples
 #' \donttest{
@@ -20,7 +36,25 @@
 #' head(whale_brains)
 #' summary(whale_brains)
 #' 
-#' # Add relevant examples here
+#' # Compare brain mass across taxonomic groups
+#' boxplot(brain_mass ~ taxonomic_group, data = whale_brains, 
+#'         main = "Brain Mass by Taxonomic Group",
+#'         ylab = "Brain Mass (g)", log = "y")
+#' 
+#' # Look at the relationship between brain mass and body mass
+#' # Using log scales to show allometric relationships
+#' plot(body_mass, brain_mass, data = whale_brains, 
+#'      log = "xy", col = as.numeric(taxonomic_group),
+#'      pch = 16, main = "Brain Mass vs. Body Mass",
+#'      xlab = "Body Mass (kg)", ylab = "Brain Mass (g)")
+#' legend("topleft", legend = levels(whale_brains$taxonomic_group), 
+#'        col = 1:3, pch = 16)
+#'        
+#' # Compare fossil and extant cetaceans
+#' cetaceans <- subset(whale_brains, taxonomic_group == "Cetacean")
+#' boxplot(brain_mass ~ time_period, data = cetaceans,
+#'         main = "Brain Mass in Fossil vs. Extant Cetaceans",
+#'         ylab = "Brain Mass (g)", log = "y")
 #' }
 "whale_brains"
 
