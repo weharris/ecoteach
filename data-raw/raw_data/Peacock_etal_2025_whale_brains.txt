@@ -1,0 +1,27 @@
+# The evolution of hearing and brain size in Eocene whales
+
+Dataset DOI: [10.5061/dryad.sf7m0cgh1](10.5061/dryad.sf7m0cgh1)
+
+## Description of the data and file structure
+
+Data on endocranial volume and body mass collected from various sources. With several new data points from CT scans and direct measurement of specimens.
+
+### Files and variables
+
+#### File: Description\_of\_H-GSP\_96314.docx (Zenodo)
+
+**Description:** Description of jaw from juvenile pakicetid.
+
+#### File: endocranial\_volume\_and\_body\_mass\_data\_for\_paleobiology.csv (Dryad)
+
+**Description:** Endocranial volume and body mass data
+
+##### Variables
+
+* family: family level clade for each species
+* binomial_name: full taxonomic name for each species
+* common_name: a common name for each species
+* endocranial_volume: endocranial volume in cubic centimetres 
+* brain_mass: brain mass in grams
+* ocw_mm: occipital condyle width in mm
+* body_mass: body mass in kg
