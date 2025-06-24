@@ -4,9 +4,9 @@
 \name{ecoteach-package}
 \alias{ecoteach}
 \alias{ecoteach-package}
-\title{ecoteach: What the Package Does (One Line, Title Case)}
+\title{ecoteach: Educational Datasets for Ecology and Agriculture}
 \description{
-What the package does (one paragraph).
+A collection of curated educational datasets for teaching ecology and agriculture concepts. Includes data on wildlife monitoring, plant treatments, and ecological observations with documentation and examples for educational use.
 }
 \author{
 \strong{Maintainer}: First Last \email{first.last@example.com}

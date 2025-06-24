@@ -26,7 +26,6 @@
 #'   chimpanzees in an open habitat?. Dryad Digital Repository.
 #'   \doi{10.5061/DRYAD.5DV41NS34}
 #' @examples
-#' \donttest{
 #' # Load the dataset
 #' data(chimpanzee_cameras)
 #' 
@@ -34,24 +33,29 @@
 #' head(chimpanzee_cameras)
 #' summary(chimpanzee_cameras)
 #' 
-#' # Count detections by camera
-#' library(dplyr)
-#' chimpanzee_cameras %>%
-#'   group_by(Camera) %>%
-#'   summarize(
-#'     total_observations = n(),
-#'     detections = sum(detection == "present", na.rm = TRUE),
-#'     detection_rate = mean(detection == "present", na.rm = TRUE)
-#'   )
+#' \donttest{
+#' # Count detections by camera (requires dplyr)
+#' if (requireNamespace("dplyr", quietly = TRUE)) {
+#'   library(dplyr)
+#'   chimpanzee_cameras %>%
+#'     group_by(Camera) %>%
+#'     summarize(
+#'       total_observations = n(),
+#'       detections = sum(detection == "present", na.rm = TRUE),
+#'       detection_rate = mean(detection == "present", na.rm = TRUE)
+#'     )
+#' }
 #' 
-#' # Visualize detection patterns over time
-#' library(ggplot2)
-#' ggplot(chimpanzee_cameras, aes(x = date, y = Camera, fill = detection)) +
-#'   geom_tile() +
-#'   scale_fill_manual(values = c("absent" = "lightblue", "present" = "darkred"),
-#'                     na.value = "gray90") +
-#'   theme_minimal() +
-#'   labs(title = "Chimpanzee detections by camera over time",
-#'        x = "Date", y = "Camera")
+#' # Visualize detection patterns over time (requires ggplot2)
+#' if (requireNamespace("ggplot2", quietly = TRUE)) {
+#'   library(ggplot2)
+#'   ggplot(chimpanzee_cameras, aes(x = date, y = Camera, fill = detection)) +
+#'     geom_tile() +
+#'     scale_fill_manual(values = c("absent" = "lightblue", "present" = "darkred"),
+#'                       na.value = "gray90") +
+#'     theme_minimal() +
+#'     labs(title = "Chimpanzee detections by camera over time",
+#'          x = "Date", y = "Camera")
+#' }
 #' }
 "chimpanzee_cameras" 

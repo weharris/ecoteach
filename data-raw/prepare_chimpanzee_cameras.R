@@ -70,9 +70,17 @@ chimpanzee_cameras$Vegetation <- as.factor(chimpanzee_cameras$Vegetation)
 chimpanzee_cameras$Topography <- as.factor(chimpanzee_cameras$Topography)
 
 # Convert detection to a factor with meaningful levels
-chimpanzee_cameras$detection <- factor(chimpanzee_cameras$detection, 
-                                      levels = c(0, 1, NA), 
-                                      labels = c("absent", "present", NA))
+# First convert NA values to NA explicitly to avoid factor conversion issues
+chimpanzee_cameras$detection_status <- NA  # Create a new column
+chimpanzee_cameras$detection_status[chimpanzee_cameras$detection == 0] <- "absent"
+chimpanzee_cameras$detection_status[chimpanzee_cameras$detection == 1] <- "present"
+chimpanzee_cameras$detection_status <- as.factor(chimpanzee_cameras$detection_status)
+
+# Drop the original detection column
+chimpanzee_cameras$detection <- NULL
+
+# Rename the new column back to detection
+names(chimpanzee_cameras)[names(chimpanzee_cameras) == "detection_status"] <- "detection"
 
 # Verify the cleaned data
 cat("\nCleaned data structure:\n")
