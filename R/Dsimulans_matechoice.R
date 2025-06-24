@@ -41,14 +41,11 @@
 #' # Examine mate copying rates by treatment
 #' table(Dsimulans_matechoice$Treatment, Dsimulans_matechoice$MCS)
 #' 
-#' # Compare mate copying across different strains
-#' library(ggplot2)
-#' ggplot(Dsimulans_matechoice, aes(x = Strain, fill = MCS)) +
-#'   geom_bar(position = "fill") +
-#'   facet_wrap(~Treatment) +
-#'   labs(y = "Proportion", 
-#'        title = "Mate choice outcomes by strain and treatment")
-#'        
+#' # Compare mate copying across different strains (using base R)
+#' mosaicplot(table(Dsimulans_matechoice$Strain, Dsimulans_matechoice$MCS),
+#'            main = "Mate choice outcomes by strain",
+#'            color = c("lightblue", "salmon"))
+#'            
 #' # Analyze if environmental conditions affect mate copying
 #' boxplot(Temp ~ MCS, data = Dsimulans_matechoice, 
 #'         main = "Temperature effects on mate copying",
