@@ -47,13 +47,13 @@
 #' # Examine isotope signatures by species
 #' boxplot(d13C ~ species, data = vulture_diet,
 #'         main = "Carbon Isotope Signatures by Vulture Species",
-#'         xlab = "Species", ylab = "δ13C (‰)")
+#'         xlab = "Species", ylab = "d13C (per mill)")
 #' 
 #' # Create isotope biplot
 #' plot(vulture_diet$d13C, vulture_diet$d15N,
 #'      col = as.numeric(vulture_diet$species),
 #'      pch = 16, cex = 1.2,
-#'      xlab = "δ13C (‰)", ylab = "δ15N (‰)",
+#'      xlab = "d13C (per mill)", ylab = "d15N (per mill)",
 #'      main = "Vulture Feather Isotope Signatures")
 #' legend("topright", legend = levels(vulture_diet$species), 
 #'        col = 1:nlevels(vulture_diet$species), pch = 16)

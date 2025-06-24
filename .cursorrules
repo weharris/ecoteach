@@ -1,0 +1,24 @@
+# R Package Development Rules for Cursor IDE
+
+## Context
+You are helping develop an R package called "ecoteach" that contains curated educational datasets for ecology and agriculture students. The package follows CRAN standards.
+
+## Current Package Status
+- Has 3 datasets: magellanic_penguins, berberis_treatment, vulture_diet
+- All datasets are CRAN-compliant (<5MB, CC0 licensed, fully documented)
+- Package passes devtools::check() with 0 errors/warnings/notes
+
+## Adding New Datasets - Quick Workflow
+1. Copy files to data-raw/raw_data/ (CSV + .bib files)
+2. Run: R -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('name', 'file.csv', 'file.bib')"
+3. Edit the generated preparation script with proper factor levels
+4. Run: R -e "source('data-raw/prepare_name.R')"
+5. Edit the generated documentation
+6. Run: R -e "devtools::document(); devtools::check()"
+
+## Code Standards
+- Use snake_case for all names
+- Factors must have correct levels (check unique(column) first)
+- Include @examples with \donttest{}
+- No Unicode characters in examples
+- Always cite with DOI
