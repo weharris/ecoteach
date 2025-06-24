@@ -20,6 +20,7 @@ The package includes the following datasets:
 \item \code{\link{vulture_diet}}: Diet composition analysis of African vultures
 \item \code{\link{chimpanzee_cameras}}: Camera trap detection data for wild chimpanzees
 \item \code{\link{lion_reproduction}}: Reproductive data for Galapagos sea lions
+\item \code{\link{barnswallow_brightness}}: Plumage brightness data for barn swallows
 \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 }
 
@@ -69,6 +70,10 @@ Listening and watching: do camera traps or acoustic sensors more efficiently det
 Kalberer, S., Meise, K., Trillmich, F., & Krüger, O. (2018).
 Reproductive performance of a tropical apex predator in an unpredictable habitat.
 \doi{10.5061/DRYAD.6S48579}
+
+Morosse, O., Tsunekage, T., Kenny-Duddela, H., Schield, D., Keller, K., Safran, R., & Levin, I. (2025).
+North American barn swallows pair, mate, and interact assortatively.
+\doi{10.5061/DRYAD.1G1JWSV8G}
 }
 \author{
 \strong{Maintainer}: First Last \email{first.last@example.com}
