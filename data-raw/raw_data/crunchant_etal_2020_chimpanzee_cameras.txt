@@ -1,0 +1,31 @@
+## Methods
+
+This dataset was collected with a passive acoustic monitoring and camera trap systems. We manually processed audio files and videos to confirm chimpanzee detections and create matrices of presence/absence for occupancy modelling. These matrices presented in the archive are the raw matrices: for the passive acoustic monitoring, the values correspond to detection/non detection per 30min files and for the camera traps, the values corresponds to detection/non detection per day of deployment. Further steps, as detailed in the manuscript (i.e. divide the sampling period into sampling occasions of 8 days) have been conducted to create the occupancy model.
+
+## Other
+
+Detection histories were compiled into matrices containing two different values: (0) non detection and (1) detection. When no survey was conducted during a sampling occasion (e.g. due to camera or audio recorder malfunctioning or not deployed), a value of NA was assigned. The value (1) corresponds to at least one detection during a sampling occasion.
+
+1. With one million animal species at risk of extinction, there is an
+ urgent need to regularly monitor threatened species. However, in practice
+ this is challenging, especially with wide-ranging, elusive and cryptic
+ species or those that occur at low density. 2. Here we compare two
+ non-invasive methods, passive acoustic monitoring (n=12) and camera
+ trapping (n=53), to detect chimpanzees (Pan troglodytes) in a
+ savanna-woodland mosaic habitat at the Issa Valley, Tanzania. With
+ occupancy modelling we evaluate the efficacy of each method, using the
+ estimated number of sampling days needed to establish chimpanzee absence
+ with 95% probability, as our measure of efficacy. 3. Passive acoustic
+ monitoring was more efficient than camera trapping in detecting wild
+ chimpanzees. Detectability varied over seasons, likely due to social and
+ ecological factors that influence party size and vocalization rate. The
+ acoustic method can infer chimpanzee absence with less than ten days of
+ recordings in the field during the late dry season, the period of highest
+ detectability, which was five times faster than the visual method. 4.
+ Synthesis and applications: Despite some technical limitations, we
+ demonstrate that passive acoustic monitoring is a powerful tool for
+ species monitoring. Its applicability in evaluating presence/absence,
+ especially but not exclusively for loud call species, such as cetaceans,
+ elephants, gibbons or chimpanzees provides a more efficient way of
+ monitoring populations and inform conservation plans to mediate
+ species-loss.
