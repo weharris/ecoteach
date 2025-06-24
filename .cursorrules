@@ -57,44 +57,47 @@ preview_bib("file.bib")
 ### Reliable Command Execution
 When running R commands in Cursor IDE with Git Bash on Windows, use the following approaches:
 
-1. **Use Rscript with -e flag for single commands**:
+1. **Use R with -e flag for single commands**:
    ```bash
-   Rscript -e "print('Hello world')"
+   R -e "print('Hello world')"
    ```
 
 2. **Source R scripts directly**:
    ```bash
-   Rscript -e "source('data-raw/prepare_dataset.R')"
+   R -e "source('data-raw/prepare_dataset.R')"
    ```
 
 3. **Run package development commands**:
    ```bash
    # Generate documentation
-   Rscript -e "devtools::document()"
+   R -e "devtools::document()"
    
    # Check package
-   Rscript -e "devtools::check()"
+   R -e "devtools::check()"
    
    # Load package for testing
-   Rscript -e "devtools::load_all()"
+   R -e "devtools::load_all()"
    ```
 
 4. **Process a dataset from start to finish**:
    ```bash
    # Create dataset files
-   Rscript -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+   R -e "source('data-raw/dataset_helper.R')"
+   R -e "auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
    
    # Process the dataset
-   Rscript -e "source('data-raw/prepare_dataset.R')"
+   R -e "source('data-raw/prepare_dataset.R')"
    
    # Generate documentation
-   Rscript -e "devtools::document()"
+   R -e "devtools::document()"
    ```
 
 ### Important Notes
 - Avoid starting interactive R sessions in the terminal
 - Always use double quotes inside single quotes or escape properly
 - For complex operations, create a small R script and source it
+- Avoid using semicolons to combine multiple R commands in a single terminal command
+- Run one command at a time for better reliability
 - If a command fails, try simplifying it or breaking it into smaller parts
 
 ## When Writing R Code
@@ -257,19 +260,20 @@ Remember: This is an educational package, so examples should be meaningful for t
 ## Working with Files in Cursor IDE (Windows Environment)
 
 ### Effective File Creation/Editing Methods:
-1. **Use Rscript for file operations**: 
+1. **Use R for file operations**: 
    ```bash
-   Rscript -e "writeLines(c('line1', 'line2'), 'filename.R')"
+   R -e "writeLines(c('line1', 'line2'), 'filename.R')"
    ```
 
 2. **Run R scripts directly**:
    ```bash
-   Rscript data-raw/prepare_dataset.R
+   R -e "source('data-raw/prepare_dataset.R')"
    ```
 
 3. **Use the dataset_helper.R functions**:
    ```bash
-   Rscript -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+   R -e "source('data-raw/dataset_helper.R')"
+   R -e "auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
    ```
 
 ### Avoid These Approaches:
