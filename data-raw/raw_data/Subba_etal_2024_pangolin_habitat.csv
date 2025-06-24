@@ -1,4 +1,4 @@
-OBJECT ID,Replicate 1,Replicate 2,Replicate 3,Replicate 4,Replicate 5,Replicate 6,Distance to water body,Terrain Ruggedness Index,Mean NDVI ,Habitat type,Habitat structure,Human Disturbance Index,Termite mounds
+OBJECT ID,Replicate 1,Replicate 2,Replicate 3,Replicate 4,Replicate 5,Replicate 6,Distance to water body,Terrain Ruggedness Index,Mean_NDVI,Habitat type,Habitat structure,Human Disturbance Index,Termite mounds
 1,0,0,0,0,0,0,2792.67,0.666672,0.203022,HS,T,1,0
 2,0,0,0,0,0,0,1974.72,0.638889,0.294164,SF,T,0.75,2
 3,0,0,0,0,0,0,5037.6,0.459772,0.209598,SF,C,1,0
