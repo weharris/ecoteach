@@ -5,10 +5,8 @@
 
 <!-- badges: start -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/ecoteach)](https://CRAN.R-project.org/package=ecoteach)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
@@ -44,14 +42,7 @@ purposes.
 
 ## Installation
 
-You can install the released version of ecoteach from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("ecoteach")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
