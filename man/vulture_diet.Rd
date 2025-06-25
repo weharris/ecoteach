@@ -33,11 +33,11 @@ across space and time using stable isotope analysis.
 }
 \details{
 Vultures were captured using noose lines around provisioned or natural bait, processed,
-and released. Feather samples were analyzed for δ13C, δ15N, and δ34S using a PyroCube
+and released. Feather samples were analyzed for delta13C, delta15N, and delta34S using a PyroCube
 elemental analyzer at the NERC Life Sciences Mass Spectrometry Facility. The isotope
-signatures provide insights into vulture diet composition, with δ13C distinguishing
-between C3 and C4 plant consumers (browsers vs grazers), δ15N indicating trophic level,
-and δ34S helping separate geographic regions.
+signatures provide insights into vulture diet composition, with delta13C distinguishing
+between C3 and C4 plant consumers (browsers vs grazers), delta15N indicating trophic level,
+and delta34S helping separate geographic regions.
 
 This subset was specifically prepared for use in stable isotope mixing models to estimate
 diet composition in Gyps vultures. The study found that vulture diet consisted primarily
