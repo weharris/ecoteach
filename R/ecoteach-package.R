@@ -20,6 +20,7 @@
 #'   \item \code{\link{whale_brains}}: Brain size evolution data for cetaceans
 #'   \item \code{\link{elephant_farmers}}: Agricultural use metrics for elephants
 #'   \item \code{\link{Dsimulans_matechoice}}: Mate copying data for fruit flies
+#'   \item \code{\link{carrion_arrivals}}: Vertebrate scavenger visits to roe deer carrion
 #'   \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 #' }
 #'
@@ -78,6 +79,10 @@
 #' Nöbel, S., & Kaufmann, T. (2025).
 #' Data from: Mate copying in Drosophila simulans.
 #' \doi{10.5061/DRYAD.ZS7H44JMC}
+#'
+#' Schwegmann, S. (2023).
+#' Use of viscera from hunted roe deer by vertebrate scavengers in summer in central European mountainous mixed forest.
+#' \doi{10.5061/DRYAD.Q573N5TPP}
 #'
 #' @examples
 #' # Load a dataset
