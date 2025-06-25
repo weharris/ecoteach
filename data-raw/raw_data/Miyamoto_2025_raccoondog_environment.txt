@@ -1,0 +1,58 @@
+# Seasonal activity changes in raccoon dogs and influences of environmental factors from autumn to winter
+
+Dataset DOI: [10.5061/dryad.c866t1gjn](10.5061/dryad.c866t1gjn)
+
+## Description of the data and file structure
+
+Title: Mammalian and Environmental Raw Data for Raccoon Dogs Seasonal Activity Study
+
+File: mammalian_environmental_raw_data.csv
+
+Description:
+
+This dataset supports the analysis of seasonal activity changes in raccoon dogs (*Nyctereutes procyonoides*) in the Sizuolou Nature Reserve, Beijing, China, from autumn to winter. It includes records of mammalian detection events collected by camera traps, along with associated environmental variables.
+
+License:
+
+This dataset is shared under the CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.
+
+### Files and variables
+
+#### File: mammalian\_environmental\_raw\_data.csv
+
+**Description:** Raw data containing mammalian detection events and environmental variables related to each camera installation point.
+
+##### Variables
+
+* Pt: Camera installation point ID
+* Asian badger: Number of detection events
+* Boar: Number of detection events
+* Hog badger: Number of detection events
+* Leopard cat: Number of detection events
+* Masked palm civet: Number of detection events
+* Pere David's rock squirrel: Number of detection events
+* Raccoon dog: Number of detection events
+* Red squirrel: Number of detection events
+* Siberian roe deer: Number of detection events
+* Siberian weasel: Number of detection events
+* Swinhoe's striped squirrel: Number of detection events
+* Tolai hare: Number of detection events
+* Impervious areas: The distance from the camera installation point to the nearest impervious area (meters)
+* Agricultural land: The distance from the camera installation point to the nearest agricultural land (meters)
+* Water sources: The distance from the camera installation point to the nearest water source (meters)
+* Roads: The distance from the camera installation point to the nearest road (meters)
+* Altitude: Altitude of camera installation point (unit: meters above sea level)
+* TPI: Topographic Position Index of the camera installation point
+* Day: Date of detection (camera trapping period: October 15, 2023 – February 29, 2024)
+* Season: Season at time of detection (autumn/winter)
+* Vegetation: Type of vegetation at the camera installation point
+
+**Note**: The name "Père David’s rock squirrel" is written as "Pere David’s rock squirrel" in the CSV file, without the diacritic on "Père".
+
+## Access information
+
+Data was derived from the following sources:
+
+- National Catalogue Service for Geographic Information ([www.webmap.cn](http://www.webmap.cn))
+- Yang, J. and Huang, X. (2023). The 30 m annual land cover datasets and their dynamics in China from 1985 to 2022. *Earth Syst. Sci. Data*, 15, 3907–3925.
+- U.S. Geological Survey for Digital Elevation Model ([https://earthexplorer.usgs.gov/](https://earthexplorer.usgs.gov/)).
