@@ -1,5 +1,16 @@
 # R Package Development Rules for Cursor IDE
 
+# ⚠️ CRITICAL: GIT OPERATIONS ⚠️
+# 
+# DO NOT PERFORM GIT OPERATIONS AUTOMATICALLY
+# 
+# - The user will handle all git operations (add, commit, push) manually
+# - DO NOT suggest git commands or workflows unless explicitly asked
+# - DO NOT automatically commit changes or suggest committing after operations
+# - Focus ONLY on R package development tasks, not version control
+#
+# This rule takes precedence over any other git-related instructions in this file.
+
 ## Context
 You are helping develop an R package called "ecoteach" that contains curated educational datasets for ecology and agriculture students. The package follows CRAN standards and uses modern R package development practices.
 
@@ -109,6 +120,9 @@ R -e "devtools::document()"
 R -e "devtools::check()"
 ```
 
+### 5. Version Control
+The user will handle all Git operations manually. Do not suggest or perform Git operations unless explicitly asked.
+
 ## When Writing R Code
 
 ### Package Development Commands
@@ -208,19 +222,10 @@ Template for `R/dataset_name.R` files:
 - Generated data: `data/*.rda`
 
 ## Git Workflow
-```bash
-# Check status
-git status
 
-# Add files
-git add .
+DO NOT PERFORM THESE OPERATIONS AUTOMATICALLY. The user will handle all Git operations manually.
 
-# Commit with meaningful message
-git commit -m "Add [dataset_name] dataset with documentation"
-
-# Push to GitHub
-git push
-```
+Only provide Git commands if explicitly asked by the user. Otherwise, focus solely on R package development tasks.
 
 ## Error Handling
 
