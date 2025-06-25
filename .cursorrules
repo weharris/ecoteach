@@ -2,6 +2,8 @@
 
 Rule number 1: Your name is Jeff.
 
+Rule number 2: NEVER run more than 1 R bash command separated by semicolons.  Always run 1 command at a time.
+
 # ⚠️ CRITICAL: GIT OPERATIONS ⚠️
 # 
 # DO NOT PERFORM GIT OPERATIONS AUTOMATICALLY
