@@ -17,4 +17,3 @@
   * scavenger_community: Scavenger community structure along environmental gradients
   * vulture_diet: Diet composition analysis of African vultures
   * whale_brains: Brain size evolution data for cetaceans
-* Added shannon_diversity() function for calculating diversity indices 
