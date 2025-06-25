@@ -3,6 +3,40 @@
 ## Context
 You are helping develop an R package called "ecoteach" that contains curated educational datasets for ecology and agriculture students. The package follows CRAN standards and uses modern R package development practices.
 
+# ⚠️ CRITICAL: RUNNING R COMMANDS IN CURSOR IDE ⚠️
+
+## REQUIRED COMMAND FORMAT
+When running R commands in Cursor IDE with Git Bash on Windows, you MUST:
+
+1. **ALWAYS use the R -e flag with proper quoting**:
+   ```bash
+   R -e "source('data-raw/dataset_helper.R')"
+   ```
+
+2. **ALWAYS source helper files before using their functions**:
+   ```bash
+   # CORRECT - Source first, then use function
+   R -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+   
+   # WRONG - Will fail because function is not in scope
+   R -e "auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+   ```
+
+3. **ALWAYS use double quotes inside single quotes**:
+   ```bash
+   # CORRECT
+   R -e "library(dplyr); filter(data, column == 'value')"
+   
+   # WRONG - Will cause syntax errors
+   R -e 'library(dplyr); filter(data, column == "value")'
+   ```
+
+4. **NEVER use interactive R sessions in terminal**
+
+5. **Run one command at a time for better reliability**
+
+6. **If a command fails, check the error and refer back to these rules**
+
 ## Package Structure
 ```
 ecoteach/
@@ -52,55 +86,28 @@ quick_dataset_setup("dataset_name", "file.csv", "description", "doi", year, "cit
 preview_bib("file.bib")
 ```
 
-## Running R Commands in Cursor IDE
+## Standard Dataset Workflow
 
-### Reliable Command Execution
-When running R commands in Cursor IDE with Git Bash on Windows, use the following approaches:
+### 1. Create Dataset Files
+```bash
+# ALWAYS source the helper file first
+R -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+```
 
-1. **Use R with -e flag for single commands**:
-   ```bash
-   R -e "print('Hello world')"
-   ```
+### 2. Process the Dataset
+```bash
+R -e "source('data-raw/prepare_dataset_name.R')"
+```
 
-2. **Source R scripts directly**:
-   ```bash
-   R -e "source('data-raw/prepare_dataset.R')"
-   ```
+### 3. Generate Documentation
+```bash
+R -e "devtools::document()"
+```
 
-3. **Run package development commands**:
-   ```bash
-   # Generate documentation
-   R -e "devtools::document()"
-   
-   # Check package
-   R -e "devtools::check()"
-   
-   # Load package for testing
-   R -e "devtools::load_all()"
-   ```
-
-4. **Process a dataset from start to finish**:
-   ```bash
-   # Create dataset files
-   R -e "source('data-raw/dataset_helper.R')"
-   R -e "auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
-   
-   # Process the dataset
-   R -e "source('data-raw/prepare_dataset.R')"
-   
-   # Generate documentation
-   R -e "devtools::document()"
-   ```
- 
-
-### Important Notes
-- Avoid starting interactive R sessions in the terminal
-- Always use double quotes inside single quotes or escape properly
-- For complex operations, create a small R script and source it
-- Avoid using semicolons to combine multiple R commands in a single terminal command
-- Run one command at a time for better reliability
-- If a command fails, try simplifying it or breaking it into smaller parts
-- Update the ecoteach-package.R documentation when necessary, e.g. after adding a newdataset
+### 4. Check the Package
+```bash
+R -e "devtools::check()"
+```
 
 ## When Writing R Code
 
@@ -250,15 +257,6 @@ git push
 - Check examples work: Run code in @examples
 - Run full package check: `devtools::check()`
 
-## When Helping with Code:
-1. Always verify file paths exist
-2. Check data structure before assuming column names
-3. Use proper roxygen2 syntax for documentation
-4. Include CRAN-compliant examples
-5. Follow the established automation workflow
-6. Test that code actually works
-
-Remember: This is an educational package, so examples should be meaningful for teaching ecology and agriculture concepts.
 ## Working with Files in Cursor IDE (Windows Environment)
 
 ### Effective File Creation/Editing Methods:
@@ -274,8 +272,7 @@ Remember: This is an educational package, so examples should be meaningful for t
 
 3. **Use the dataset_helper.R functions**:
    ```bash
-   R -e "source('data-raw/dataset_helper.R')"
-   R -e "auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
+   R -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'file.csv', 'file.bib')"
    ```
 
 ### Avoid These Approaches:
