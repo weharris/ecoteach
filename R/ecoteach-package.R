@@ -23,6 +23,7 @@
 #'   \item \code{\link{carrion_arrivals}}: Vertebrate scavenger visits to roe deer carrion
 #'   \item \code{\link{scavenger_community}}: Scavenger community structure along environmental gradients
 #'   \item \code{\link{badger_energy}}: Energy expenditure data for European badgers with tuberculosis
+#'   \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
 #'   \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 #' }
 #'
@@ -93,6 +94,10 @@
 #' Barbour, K., McClune, D. W., Delahay, R. J., Speakman, J. R., McGowan, N. E., Kostka, B., Montgomery, I. W., Marks, N. J., & Scantlebury, D. M. (2019).
 #' No energetic cost of tuberculosis infection in European badgers (Meles meles).
 #' \doi{10.5061/DRYAD.MN84H20}
+#'
+#' Miyamoto, K., Chen, C., & Luan, X. (2025).
+#' Seasonal activity changes in raccoon dogs and influences of environmental factors from autumn to winter.
+#' \doi{10.5061/DRYAD.C866T1GJN}
 #'
 #' @examples
 #' # Load a dataset
