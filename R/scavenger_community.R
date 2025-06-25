@@ -71,9 +71,9 @@
 #'   \item{length}{Length of session (numeric)}
 #'   \item{samean}{Mean solar angle (numeric)}
 #'   \item{tamean}{Mean temperature (numeric)}
-#'   \item{habitat}{Habitat type: "Alpine tundra" or "Boreal forest" (factor)}
+#'   \item{habitat}{Habitat type: "Boreal forest" or "Alpine tundra" (factor)}
 #'   \item{hosl}{Hours of sunlight (numeric)}
-#'   \item{scover}{Snow cover: "No snow cover" or "Snow cover" (factor)}
+#'   \item{scover}{Snow cover: "Snow cover" or "No snow cover" (factor)}
 #'   \item{loghosl}{Log-transformed hours of sunlight (numeric)}
 #'   \item{altitude}{Altitude in meters (numeric)}
 #'   \item{sdepth}{Snow depth in cm (numeric)}

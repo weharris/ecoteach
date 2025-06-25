@@ -38,8 +38,8 @@ scavenger_community <- raw_data %>%
     # Environmental variables
     habitat = factor(habitat, levels = c(1, 2), 
                     labels = c("Boreal forest", "Alpine tundra")),
-    scover = factor(scover, levels = c(1, 2),
-                   labels = c("No snow cover", "Snow cover"))
+    scover = factor(scover, levels = c(1, 0),
+                   labels = c("Snow cover", "No snow cover"))
   ) %>%
   # Replace "#FELT!" with NA
   mutate(across(everything(), ~ifelse(. == "#FELT!", NA, .))) %>%
