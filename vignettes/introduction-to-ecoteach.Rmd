@@ -1,8 +1,8 @@
 ---
-title: "introduction-to-ecoteach"
+title: "Introduction to ecoteach"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{introduction-to-ecoteach}
+  %\VignetteIndexEntry{Introduction to ecoteach}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,4 +16,161 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(ecoteach)
+```
+
+## Introduction
+
+The `ecoteach` package provides a collection of curated educational datasets for teaching ecology and agriculture concepts. Each dataset is derived from published scientific research and includes comprehensive documentation to facilitate its use in teaching environments. This vignette introduces the datasets and demonstrates how they can be used to teach various ecological and statistical concepts.
+
+## Dataset Overview
+
+The package includes datasets covering a wide range of ecological topics:
+
+```{r dataset_list}
+# List all available datasets
+data(package = "ecoteach")$results[, "Item"]
+```
+
+## Teaching Statistical Concepts
+
+### 1. Basic Data Exploration
+
+The dormouse hibernation dataset provides an excellent example for teaching basic data exploration techniques:
+
+```{r basic_exploration}
+# Load the dataset
+data(dormouse_hibernation)
+
+# Basic summary statistics
+summary(dormouse_hibernation[, c("body_mass_before", "body_mass_after", "hibernation_duration")])
+
+# Structure of the data
+str(dormouse_hibernation)
+```
+
+### 2. Visualizing Relationships
+
+Students can learn to visualize relationships between variables using datasets like the badger energy dataset:
+
+```{r visualization, eval=FALSE}
+# Load required packages
+library(ggplot2)
+
+# Load dataset
+data(badger_energy)
+
+# Create a scatterplot with regression line
+ggplot(badger_energy, aes(x = body_mass, y = energy_expenditure)) +
+  geom_point(aes(color = tb_status)) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(title = "Relationship Between Body Mass and Energy Expenditure in Badgers",
+       x = "Body Mass (kg)",
+       y = "Energy Expenditure (kJ/day)",
+       color = "TB Status") +
+  theme_minimal()
+```
+
+### 3. Comparing Groups
+
+The vulture diet dataset can be used to teach students how to compare groups:
+
+```{r group_comparison, eval=FALSE}
+# Load dataset
+data(vulture_diet)
+
+# Create a boxplot to compare diet composition across species
+ggplot(vulture_diet, aes(x = species, y = percent_occurrence, fill = species)) +
+  geom_boxplot() +
+  facet_wrap(~food_category) +
+  labs(title = "Diet Composition Across Vulture Species",
+       x = "Species",
+       y = "Percent Occurrence") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Teaching Experimental Design
+
+### Case Study: Berberis Treatment Experiment
+
+The berberis treatment dataset demonstrates principles of experimental design:
+
+```{r experimental_design}
+# Load dataset
+data(berberis_treatment)
+
+# View the experimental design structure
+table(berberis_treatment$treatment, berberis_treatment$site)
+```
+
+Students can analyze how different treatments affect invasive species management:
+
+```{r treatment_analysis, eval=FALSE}
+# Analyze treatment effects
+library(dplyr)
+
+berberis_treatment %>%
+  group_by(treatment) %>%
+  summarize(
+    mean_regrowth = mean(regrowth_height_cm, na.rm = TRUE),
+    sd_regrowth = sd(regrowth_height_cm, na.rm = TRUE),
+    n = n()
+  )
+
+# Visualize treatment effects
+ggplot(berberis_treatment, aes(x = treatment, y = regrowth_height_cm, fill = treatment)) +
+  geom_boxplot() +
+  labs(title = "Effect of Treatment on Berberis Regrowth",
+       x = "Treatment Method",
+       y = "Regrowth Height (cm)") +
+  theme_minimal()
+```
+
+## Teaching Ecological Concepts
+
+### Wildlife Monitoring
+
+The chimpanzee cameras dataset can be used to teach wildlife monitoring concepts:
+
+```{r wildlife_monitoring}
+# Load dataset
+data(chimpanzee_cameras)
+
+# View detection data
+head(chimpanzee_cameras)
+```
+
+Students can analyze detection patterns:
+
+```{r detection_patterns, eval=FALSE}
+# Analyze detection rates by habitat type
+chimpanzee_cameras %>%
+  group_by(habitat) %>%
+  summarize(
+    total_cameras = n(),
+    cameras_with_detection = sum(detection > 0),
+    detection_rate = mean(detection > 0)
+  )
+
+# Visualize detection patterns
+ggplot(chimpanzee_cameras, aes(x = habitat, y = detection, fill = habitat)) +
+  geom_violin() +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  labs(title = "Chimpanzee Detection Patterns by Habitat Type",
+       x = "Habitat Type",
+       y = "Number of Detections") +
+  theme_minimal()
+```
+
+## Conclusion
+
+The `ecoteach` package provides a rich collection of datasets that can be used to teach various ecological and statistical concepts. By using real-world data from published research, students can gain practical experience in data analysis while learning about important ecological phenomena.
+
+For more detailed information about each dataset, refer to the dataset documentation:
+
+```{r, eval=FALSE}
+?dormouse_hibernation
+?vulture_diet
+?berberis_treatment
+# etc.
 ```
