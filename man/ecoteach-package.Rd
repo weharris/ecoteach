@@ -30,7 +30,6 @@ The package includes the following datasets:
 \item \code{\link{badger_energy}}: Energy expenditure data for European badgers with tuberculosis
 \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
 \item \code{\link{dormouse_hibernation}}: Hibernation and reproduction data for edible dormice
-\item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 }
 
 All datasets are provided in tidy format, with factors appropriately coded,
