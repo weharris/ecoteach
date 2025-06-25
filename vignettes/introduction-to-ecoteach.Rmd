@@ -71,7 +71,7 @@ summary(simple_data)
 
 To use any of the datasets in the package, load them with the `data()` function:
 
-```{r, eval=FALSE}
+```{r}
 # Example with dormouse hibernation dataset
 data(dormouse_hibernation)
 head(dormouse_hibernation)
@@ -83,7 +83,7 @@ head(vulture_diet)
 
 For more detailed information about each dataset, refer to the dataset documentation:
 
-```{r, eval=FALSE}
+```{r}
 ?dormouse_hibernation
 ?vulture_diet
 ?berberis_treatment
