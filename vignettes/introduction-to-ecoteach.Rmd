@@ -20,123 +20,41 @@ library(ecoteach)
 
 ## Introduction
 
-The `ecoteach` package provides a collection of curated educational datasets for teaching ecology and agriculture concepts. Each dataset is derived from published scientific research and includes comprehensive documentation to facilitate its use in teaching environments. This vignette introduces the datasets and demonstrates how they can be used to teach various ecological and statistical concepts.
+The `ecoteach` package provides a collection of curated educational datasets for teaching ecology and agriculture concepts. Each dataset is derived from published scientific research and includes comprehensive documentation to facilitate its use in teaching environments.
 
-## Dataset Overview
+## Available Datasets
 
-The package includes datasets covering a wide range of ecological topics including:
+The package includes the following datasets:
 
-- Hibernation patterns in dormice
-- Energy expenditure in badgers
-- Invasive species management
-- Wildlife monitoring with camera traps
-- Scavenger communities
-- And many more
+- `badger_energy`: Energy expenditure data for European badgers with tuberculosis
+- `barnswallow_brightness`: Plumage brightness data for barn swallows
+- `berberis_treatment`: Data on invasive Berberis management treatments
+- `carrion_arrivals`: Vertebrate scavenger visits to roe deer carrion
+- `chimpanzee_cameras`: Camera trap detection data for wild chimpanzees
+- `dormouse_hibernation`: Hibernation and reproduction data for edible dormice
+- `Dsimulans_matechoice`: Mate copying data for fruit flies
+- `elephant_farmers`: Agricultural use metrics for elephants
+- `lion_reproduction`: Reproductive data for Galapagos sea lions
+- `magellanic_penguins`: Long-term monitoring data on Magellanic penguins
+- `pangolin_habitat`: Habitat occupancy data for Chinese pangolins
+- `raccoondog_environment`: Raccoon dog activity and environmental factors in China
+- `scavenger_community`: Scavenger community structure along environmental gradients
+- `vulture_diet`: Diet composition analysis of African vultures
+- `whale_brains`: Brain size evolution data for cetaceans
+- `simple_data`: A simple dataset for demonstration purposes
 
-## Teaching Statistical Concepts
+## Using the Shannon Diversity Function
 
-### 1. Basic Data Exploration
+The package includes a function to calculate Shannon diversity:
 
-The dormouse hibernation dataset provides an excellent example for teaching basic data exploration techniques:
-
-```{r, eval=FALSE}
-# Load the dataset
-data(dormouse_hibernation)
-
-# Basic summary statistics
-summary(dormouse_hibernation[, c("body_mass_before", "body_mass_after", "hibernation_duration")])
-
-# Structure of the data
-str(dormouse_hibernation)
-```
-
-### 2. Visualizing Relationships
-
-Students can learn to visualize relationships between variables using datasets like the badger energy dataset:
-
-```{r, eval=FALSE}
-# Load required packages
-library(ggplot2)
-
-# Load dataset
-data(badger_energy)
-
-# Create a scatterplot with regression line
-ggplot(badger_energy, aes(x = body_mass, y = energy_expenditure)) +
-  geom_point(aes(color = tb_status)) +
-  geom_smooth(method = "lm", se = TRUE) +
-  labs(title = "Relationship Between Body Mass and Energy Expenditure in Badgers",
-       x = "Body Mass (kg)",
-       y = "Energy Expenditure (kJ/day)",
-       color = "TB Status") +
-  theme_minimal()
-```
-
-### 3. Comparing Groups
-
-The vulture diet dataset can be used to teach students how to compare groups:
-
-```{r, eval=FALSE}
-# Load dataset
-data(vulture_diet)
-
-# Create a boxplot to compare diet composition across species
-ggplot(vulture_diet, aes(x = species, y = percent_occurrence, fill = species)) +
-  geom_boxplot() +
-  facet_wrap(~food_category) +
-  labs(title = "Diet Composition Across Vulture Species",
-       x = "Species",
-       y = "Percent Occurrence") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
-
-## Teaching Experimental Design
-
-### Case Study: Berberis Treatment Experiment
-
-The berberis treatment dataset demonstrates principles of experimental design:
-
-```{r, eval=FALSE}
-# Load dataset
-data(berberis_treatment)
-
-# View the experimental design structure
-table(berberis_treatment$treatment)
-```
-
-Students can analyze how different treatments affect invasive species management:
-
-```{r, eval=FALSE}
-# Analyze treatment effects
-library(dplyr)
-
-berberis_treatment %>%
-  group_by(treatment) %>%
-  summarize(
-    mean_regrowth = mean(regrowth_height_cm, na.rm = TRUE),
-    sd_regrowth = sd(regrowth_height_cm, na.rm = TRUE),
-    n = n()
-  )
-```
-
-## Teaching Ecological Concepts
-
-### Wildlife Monitoring
-
-The chimpanzee cameras dataset can be used to teach wildlife monitoring concepts:
-
-```{r, eval=FALSE}
-# Load dataset
-data(chimpanzee_cameras)
-
-# View detection data
-head(chimpanzee_cameras)
+```{r}
+# Calculate Shannon diversity for a vector of counts
+shannon_diversity(c(10, 15, 8, 12, 5))
 ```
 
 ## Working with the Simple Dataset
 
-To demonstrate that the package functionality works properly, here's an example using the simple_data dataset that's included with the package:
+Here's an example using the simple_data dataset that's included with the package:
 
 ```{r}
 # Load the simple dataset
@@ -149,18 +67,19 @@ head(simple_data)
 summary(simple_data)
 ```
 
-## Using the Shannon Diversity Function
+## Using the Datasets
 
-The package also includes a function to calculate Shannon diversity:
+To use any of the datasets in the package, load them with the `data()` function:
 
-```{r}
-# Calculate Shannon diversity for a vector of counts
-shannon_diversity(c(10, 15, 8, 12, 5))
+```{r, eval=FALSE}
+# Example with dormouse hibernation dataset
+data(dormouse_hibernation)
+head(dormouse_hibernation)
+
+# Example with vulture diet dataset
+data(vulture_diet)
+head(vulture_diet)
 ```
-
-## Conclusion
-
-The `ecoteach` package provides a rich collection of datasets that can be used to teach various ecological and statistical concepts. By using real-world data from published research, students can gain practical experience in data analysis while learning about important ecological phenomena.
 
 For more detailed information about each dataset, refer to the dataset documentation:
 
