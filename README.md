@@ -1,4 +1,3 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # ecoteach
@@ -7,51 +6,64 @@
 
 <!-- badges: end -->
 
-The goal of ecoteach is to …
+The goal of ecoteach is to provide a collection of curated educational datasets for teaching ecology and agriculture concepts. The package includes data on wildlife monitoring, plant treatments, and ecological observations with documentation and examples for educational use.
 
 ## Installation
 
-You can install the development version of ecoteach like so:
+You can install the released version of ecoteach from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install.packages("ecoteach")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("username/ecoteach")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to explore the datasets in the package:
 
 ``` r
-# library(ecoteach)
-devtools::load_all()
-#> ℹ Loading ecoteach
-#> Warning: package 'testthat' was built under R version 4.4.3
+library(ecoteach)
+
+# List all available datasets
+data(package = "ecoteach")
+
+# Load a specific dataset
+data(vulture_diet)
+
+# Examine the structure
+str(vulture_diet)
+
+# Basic summary
+summary(vulture_diet)
+
+# Calculate Shannon diversity index
+shannon_diversity(c(10, 15, 8, 12, 5))
 ```
 
-``` r
-## basic example code
-```
+## Available Datasets
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The package includes the following datasets:
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+- `badger_energy`: Energy expenditure data for European badgers with tuberculosis
+- `barnswallow_brightness`: Plumage brightness data for barn swallows
+- `berberis_treatment`: Data on invasive Berberis management treatments
+- `carrion_arrivals`: Vertebrate scavenger visits to roe deer carrion
+- `chimpanzee_cameras`: Camera trap detection data for wild chimpanzees
+- `dormouse_hibernation`: Hibernation and reproduction data for edible dormice
+- `Dsimulans_matechoice`: Mate copying data for fruit flies
+- `elephant_farmers`: Agricultural use metrics for elephants
+- `lion_reproduction`: Reproductive data for Galapagos sea lions
+- `magellanic_penguins`: Long-term monitoring data on Magellanic penguins
+- `pangolin_habitat`: Habitat occupancy data for Chinese pangolins
+- `raccoondog_environment`: Raccoon dog activity and environmental factors in China
+- `scavenger_community`: Scavenger community structure along environmental gradients
+- `vulture_diet`: Diet composition analysis of African vultures
+- `whale_brains`: Brain size evolution data for cetaceans
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+Each dataset includes comprehensive documentation and examples of potential analyses.
