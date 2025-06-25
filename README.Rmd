@@ -24,6 +24,13 @@ The goal of ecoteach is to ...
 
 You can install the development version of ecoteach like so:
 
+### install from local working directory
+devtools::install()
+
+### install from github
+devtools::install_github('weharris/ecoteach')
+
+
 ``` r
 # FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
 ```
