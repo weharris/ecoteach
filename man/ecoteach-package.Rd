@@ -29,6 +29,7 @@ The package includes the following datasets:
 \item \code{\link{scavenger_community}}: Scavenger community structure along environmental gradients
 \item \code{\link{badger_energy}}: Energy expenditure data for European badgers with tuberculosis
 \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
+\item \code{\link{dormouse_hibernation}}: Hibernation and reproduction data for edible dormice
 \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 }
 
@@ -115,9 +116,13 @@ No energetic cost of tuberculosis infection in European badgers (Meles meles).
 Miyamoto, K., Chen, C., & Luan, X. (2025).
 Seasonal activity changes in raccoon dogs and influences of environmental factors from autumn to winter.
 \doi{10.5061/DRYAD.C866T1GJN}
+
+Bieber, C., Turbill, C., & Ruf, T. (2019).
+Effects of aging on timing of hibernation and reproduction.
+\doi{10.5061/DRYAD.8004G37}
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: W. Edwin Harris \email{first.last@example.com} [copyright holder]
 
 }
 \keyword{package}
