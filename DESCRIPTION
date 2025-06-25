@@ -2,7 +2,7 @@ Package: ecoteach
 Title: Educational Datasets for Ecology and Agriculture
 Version: 0.1.0
 Authors@R: 
-    person("W. Edwin", "Harris", , "first.last@example.com", role = c("aut", "cre", "cph"))
+    person("W. Edwin", "Harris", , "weh9000@gmail.com", role = c("aut", "cre", "cph"))
 Description: A collection of curated educational datasets for teaching ecology and
     agriculture concepts. Includes data on wildlife monitoring, plant treatments,
     and ecological observations with documentation and examples for educational use.
