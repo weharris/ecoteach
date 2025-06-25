@@ -21,8 +21,8 @@ sapply(raw_data[c("age", "sex", "season", "disease")], function(x) unique(x))
 
 # Clean and prepare the data for package inclusion
 badger_energy <- raw_data %>%
-  # Remove empty columns
-  select(-matches("^$")) %>%
+  # Remove empty columns (those starting with "..." and any NA columns)
+  select(ID, age, sex, `group size`, mass, DEE, season, disease) %>%
   # Clean whitespace in character columns
   mutate(sex = trimws(sex)) %>%
   # Convert categorical variables to factors
