@@ -91,6 +91,7 @@ When running R commands in Cursor IDE with Git Bash on Windows, use the followin
    # Generate documentation
    R -e "devtools::document()"
    ```
+ 
 
 ### Important Notes
 - Avoid starting interactive R sessions in the terminal
@@ -99,6 +100,7 @@ When running R commands in Cursor IDE with Git Bash on Windows, use the followin
 - Avoid using semicolons to combine multiple R commands in a single terminal command
 - Run one command at a time for better reliability
 - If a command fails, try simplifying it or breaking it into smaller parts
+- Update the ecoteach-package.R documentation when necessary, e.g. after adding a newdataset
 
 ## When Writing R Code
 
