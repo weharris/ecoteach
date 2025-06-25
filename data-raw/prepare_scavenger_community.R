@@ -24,6 +24,8 @@ colnames(raw_data)
 # Check unique values in key columns that actually exist
 cat("\nUnique values in key habitat column:\n")
 print(unique(raw_data$habitat))
+cat("\nUnique values in scover column:\n")
+print(unique(raw_data$scover))
 
 # Clean and prepare the data for package inclusion
 scavenger_community <- raw_data %>%
@@ -34,9 +36,9 @@ scavenger_community <- raw_data %>%
     session = factor(session),
     
     # Environmental variables
-    habitat = factor(habitat, levels = c(0, 1), 
-                    labels = c("Alpine tundra", "Boreal forest")),
-    scover = factor(scover, levels = c(0, 1),
+    habitat = factor(habitat, levels = c(1, 2), 
+                    labels = c("Boreal forest", "Alpine tundra")),
+    scover = factor(scover, levels = c(1, 2),
                    labels = c("No snow cover", "Snow cover"))
   ) %>%
   # Replace "#FELT!" with NA
