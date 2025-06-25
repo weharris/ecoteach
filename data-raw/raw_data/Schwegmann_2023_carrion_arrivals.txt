@@ -1,0 +1,32 @@
+READ ME 
+Use of viscera from hunted roe deer by vertebrate scavengers in summer in central European mountainous mixed forest
+Published in Wildlife Biology 
+Dataset from 47 roe deer evisceration residues samples exposed to vertebrate scavenging in front of triple sets of camera traps in the university forest of freiburg.
+Owner: Sebastian Schwegmann (sebastian.schwegmann@gmail.com)
+
+General remarks: 
+Between May and October 2022 eight roe deer viscera samples from hunted roe deer per month were exposed to vertebrate scavenging in front of camera traps on 47 individual locations. Samples visits, feeding and removal events of samples by vertebrate scavengers were assessed. Events were deemed independent if more than 20 minutes passed between consecutive pictures. Samples were observed for a maximum of 16 days. The data was used to assess the composition of the vertebrate scavenging fauna using evisceration residues, to determine which scavengers remove entire samples of residues and how long viscera are available to invertebrate scavenging.
+
+Metadata
+
+General data: Table describing the location and general metadata of the sampling sites. 
+Samples: Indexed name of the sample site
+Session: Month
+Date-setup: Date of camera setup	
+Time-setup: Time of camera setup	
+Date-collection: date of camera collection
+Time-collection: Time of camera collection
+Hochwert, Rechtswert: Position coordinates	
+Sample: Sample ID	
+Sample_weight: Weight of the carrion sample in kg.
+Heart, Liver: Organ available in the sample (Yes/No).	
+Cam1, Cam2, Cam3: Ids of camera traps positioned.
+
+Event table: Table containing all individual events detected by camera traps.
+Samples: Indexed name of the sample site
+Date-setup: Date of camera setup
+Date Event: Date of the detected event 	
+Time: Time of the detected event 	
+Species: Scavenger species detected	
+Behaviour: Category of events detected (Visit, Feeding, Removal)	
+Days2: Time elapsed between sample exposure and detected event. 
