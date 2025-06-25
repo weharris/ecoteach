@@ -21,6 +21,7 @@
 #'   \item \code{\link{elephant_farmers}}: Agricultural use metrics for elephants
 #'   \item \code{\link{Dsimulans_matechoice}}: Mate copying data for fruit flies
 #'   \item \code{\link{carrion_arrivals}}: Vertebrate scavenger visits to roe deer carrion
+#'   \item \code{\link{scavenger_community}}: Scavenger community structure along environmental gradients
 #'   \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 #' }
 #'
@@ -83,6 +84,10 @@
 #' Schwegmann, S. (2023).
 #' Use of viscera from hunted roe deer by vertebrate scavengers in summer in central European mountainous mixed forest.
 #' \doi{10.5061/DRYAD.Q573N5TPP}
+#'
+#' Gomo, G., Rød-Eriksen, L., Andreassen, H. P., Mattisson, J., Odden, M., Devineau, O., & Eide, N. E. (2020).
+#' Scavenger community structure along an environmental gradient from boreal forest to alpine tundra in Scandinavia.
+#' \doi{10.1002/ece3.6834}
 #'
 #' @examples
 #' # Load a dataset
