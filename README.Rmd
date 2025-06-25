@@ -80,20 +80,13 @@ This example shows how the dataset can be used to explore sex differences in hib
 
 The package includes the following datasets:
 
-- `badger_energy`: Energy expenditure data for European badgers with tuberculosis
-- `barnswallow_brightness`: Plumage brightness data for barn swallows
-- `berberis_treatment`: Data on invasive Berberis management treatments
-- `carrion_arrivals`: Vertebrate scavenger visits to roe deer carrion
-- `chimpanzee_cameras`: Camera trap detection data for wild chimpanzees
-- `dormouse_hibernation`: Hibernation and reproduction data for edible dormice
-- `Dsimulans_matechoice`: Mate copying data for fruit flies
-- `elephant_farmers`: Agricultural use metrics for elephants
-- `lion_reproduction`: Reproductive data for Galapagos sea lions
-- `magellanic_penguins`: Long-term monitoring data on Magellanic penguins
-- `pangolin_habitat`: Habitat occupancy data for Chinese pangolins
-- `raccoondog_environment`: Raccoon dog activity and environmental factors in China
-- `scavenger_community`: Scavenger community structure along environmental gradients
-- `vulture_diet`: Diet composition analysis of African vultures
-- `whale_brains`: Brain size evolution data for cetaceans
+```{r datasets, echo=FALSE}
+# List all datasets in the package
+library(ecoteach)
+# Filter out non-dataset objects (like functions)
+datasets <- ls("package:ecoteach")
+datasets <- datasets[!datasets %in% c("shannon_diversity")]
+cat(paste0("- `", datasets, "`\n"))
+```
 
 Each dataset includes comprehensive documentation with details about the variables, source references, and suggested analyses for teaching purposes.
