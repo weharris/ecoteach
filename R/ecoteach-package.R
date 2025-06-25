@@ -48,7 +48,7 @@
 #'
 #' Rebstock, G. A., Boersma, P. D., & García-Borboroglu, P. (2022). 
 #' Magellanic penguin nest counts and reproductive success at Punta Tombo, Argentina, 1982-2021.
-#' \doi{10.5061/dryad.7wm37pvz7}
+#' \doi{10.5061/DRYAD.8931ZCRSV}
 #'
 #' Baino, A., Hopcraft, G., Kendall, C., Munishi, L., Behdenna, A., & Newton, J. (2021). 
 #' We are what we eat, plus some per mill: Using stable isotopes to estimate diet composition of African vultures.
