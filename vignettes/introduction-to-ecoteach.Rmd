@@ -24,12 +24,14 @@ The `ecoteach` package provides a collection of curated educational datasets for
 
 ## Dataset Overview
 
-The package includes datasets covering a wide range of ecological topics:
+The package includes datasets covering a wide range of ecological topics including:
 
-```{r dataset_list}
-# List all available datasets
-data(package = "ecoteach")$results[, "Item"]
-```
+- Hibernation patterns in dormice
+- Energy expenditure in badgers
+- Invasive species management
+- Wildlife monitoring with camera traps
+- Scavenger communities
+- And many more
 
 ## Teaching Statistical Concepts
 
@@ -37,7 +39,7 @@ data(package = "ecoteach")$results[, "Item"]
 
 The dormouse hibernation dataset provides an excellent example for teaching basic data exploration techniques:
 
-```{r basic_exploration}
+```{r, eval=FALSE}
 # Load the dataset
 data(dormouse_hibernation)
 
@@ -52,7 +54,7 @@ str(dormouse_hibernation)
 
 Students can learn to visualize relationships between variables using datasets like the badger energy dataset:
 
-```{r visualization, eval=FALSE}
+```{r, eval=FALSE}
 # Load required packages
 library(ggplot2)
 
@@ -74,7 +76,7 @@ ggplot(badger_energy, aes(x = body_mass, y = energy_expenditure)) +
 
 The vulture diet dataset can be used to teach students how to compare groups:
 
-```{r group_comparison, eval=FALSE}
+```{r, eval=FALSE}
 # Load dataset
 data(vulture_diet)
 
@@ -95,24 +97,17 @@ ggplot(vulture_diet, aes(x = species, y = percent_occurrence, fill = species)) +
 
 The berberis treatment dataset demonstrates principles of experimental design:
 
-```{r experimental_design}
+```{r, eval=FALSE}
 # Load dataset
 data(berberis_treatment)
 
 # View the experimental design structure
-# Using a simpler approach to avoid length issues
 table(berberis_treatment$treatment)
-table(berberis_treatment$site)
-
-# Cross-tabulation of treatment by site
-if(requireNamespace("dplyr", quietly = TRUE)) {
-  dplyr::count(berberis_treatment, treatment, site)
-}
 ```
 
 Students can analyze how different treatments affect invasive species management:
 
-```{r treatment_analysis, eval=FALSE}
+```{r, eval=FALSE}
 # Analyze treatment effects
 library(dplyr)
 
@@ -123,14 +118,6 @@ berberis_treatment %>%
     sd_regrowth = sd(regrowth_height_cm, na.rm = TRUE),
     n = n()
   )
-
-# Visualize treatment effects
-ggplot(berberis_treatment, aes(x = treatment, y = regrowth_height_cm, fill = treatment)) +
-  geom_boxplot() +
-  labs(title = "Effect of Treatment on Berberis Regrowth",
-       x = "Treatment Method",
-       y = "Regrowth Height (cm)") +
-  theme_minimal()
 ```
 
 ## Teaching Ecological Concepts
@@ -139,7 +126,7 @@ ggplot(berberis_treatment, aes(x = treatment, y = regrowth_height_cm, fill = tre
 
 The chimpanzee cameras dataset can be used to teach wildlife monitoring concepts:
 
-```{r wildlife_monitoring}
+```{r, eval=FALSE}
 # Load dataset
 data(chimpanzee_cameras)
 
@@ -147,26 +134,28 @@ data(chimpanzee_cameras)
 head(chimpanzee_cameras)
 ```
 
-Students can analyze detection patterns:
+## Working with the Simple Dataset
 
-```{r detection_patterns, eval=FALSE}
-# Analyze detection rates by habitat type
-chimpanzee_cameras %>%
-  group_by(habitat) %>%
-  summarize(
-    total_cameras = n(),
-    cameras_with_detection = sum(detection > 0),
-    detection_rate = mean(detection > 0)
-  )
+To demonstrate that the package functionality works properly, here's an example using the simple_data dataset that's included with the package:
 
-# Visualize detection patterns
-ggplot(chimpanzee_cameras, aes(x = habitat, y = detection, fill = habitat)) +
-  geom_violin() +
-  geom_jitter(width = 0.2, alpha = 0.5) +
-  labs(title = "Chimpanzee Detection Patterns by Habitat Type",
-       x = "Habitat Type",
-       y = "Number of Detections") +
-  theme_minimal()
+```{r}
+# Load the simple dataset
+data(simple_data)
+
+# View the data
+head(simple_data)
+
+# Basic summary
+summary(simple_data)
+```
+
+## Using the Shannon Diversity Function
+
+The package also includes a function to calculate Shannon diversity:
+
+```{r}
+# Calculate Shannon diversity for a vector of counts
+shannon_diversity(c(10, 15, 8, 12, 5))
 ```
 
 ## Conclusion
