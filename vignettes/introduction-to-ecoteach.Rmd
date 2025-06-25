@@ -84,8 +84,9 @@ head(vulture_diet)
 For more detailed information about each dataset, refer to the dataset documentation:
 
 ```{r}
-?dormouse_hibernation
-?vulture_diet
-?berberis_treatment
+# E.G.:
+# ?dormouse_hibernation
+# ?vulture_diet
+# ?berberis_treatment
 # etc.
 ```
