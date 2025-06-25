@@ -18,6 +18,30 @@ datasets for teaching ecology and agriculture concepts. The package
 includes data on wildlife monitoring, plant treatments, and ecological
 observations with documentation and examples for educational use.
 
+## Available Datasets
+
+The package includes the following datasets:
+
+    #> - `badger_energy`
+    #>  - `barnswallow_brightness`
+    #>  - `berberis_treatment`
+    #>  - `carrion_arrivals`
+    #>  - `chimpanzee_cameras`
+    #>  - `dormouse_hibernation`
+    #>  - `Dsimulans_matechoice`
+    #>  - `elephant_farmers`
+    #>  - `lion_reproduction`
+    #>  - `magellanic_penguins`
+    #>  - `pangolin_habitat`
+    #>  - `raccoondog_environment`
+    #>  - `scavenger_community`
+    #>  - `vulture_diet`
+    #>  - `whale_brains`
+
+Each dataset includes comprehensive documentation with details about the
+variables, source references, and suggested analyses for teaching
+purposes.
+
 ## Installation
 
 You can install the released version of ecoteach from
@@ -103,27 +127,3 @@ ggplot(dormouse_hibernation, aes(x = sex, y = mass_loss_percent, fill = sex)) +
 This example shows how the dataset can be used to explore sex
 differences in hibernation physiology, which could be used in a teaching
 context to demonstrate boxplots, t-tests, or ANOVA.
-
-## Available Datasets
-
-The package includes the following datasets:
-
-    #> - `badger_energy`
-    #>  - `barnswallow_brightness`
-    #>  - `berberis_treatment`
-    #>  - `carrion_arrivals`
-    #>  - `chimpanzee_cameras`
-    #>  - `dormouse_hibernation`
-    #>  - `Dsimulans_matechoice`
-    #>  - `elephant_farmers`
-    #>  - `lion_reproduction`
-    #>  - `magellanic_penguins`
-    #>  - `pangolin_habitat`
-    #>  - `raccoondog_environment`
-    #>  - `scavenger_community`
-    #>  - `vulture_diet`
-    #>  - `whale_brains`
-
-Each dataset includes comprehensive documentation with details about the
-variables, source references, and suggested analyses for teaching
-purposes.
