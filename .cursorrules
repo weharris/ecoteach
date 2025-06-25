@@ -44,9 +44,26 @@ When running R commands in Cursor IDE with Git Bash on Windows, you MUST:
 
 4. **NEVER use interactive R sessions in terminal**
 
-5. **Run one command at a time for better reliability**
+5. **⚠️ CRITICAL: Run one command at a time - NEVER chain multiple R processes together**:
+   ```bash
+   # CORRECT - Run operations separately
+   R -e "devtools::document()"
+   # Then in a separate command:
+   R -e "devtools::check()"
+   
+   # WRONG - Will likely hang or fail
+   R -e "devtools::document()" && R -e "devtools::check()"
+   # or
+   R -e "devtools::document(); devtools::check()"
+   ```
 
-6. **If a command fails, check the error and refer back to these rules**
+6. **For complex operations like package checks, disable interactive features**:
+   ```bash
+   # Use these options for devtools::check to prevent hanging
+   R -e "options(devtools.name = 'Your name'); devtools::check(cran = FALSE)"
+   ```
+
+7. **If a command fails or hangs, check the error and refer back to these rules**
 
 ## Package Structure
 ```
@@ -107,17 +124,21 @@ R -e "source('data-raw/dataset_helper.R'); auto_dataset_setup('dataset_name', 'f
 
 ### 2. Process the Dataset
 ```bash
+# Run as a separate command after step 1 completes
 R -e "source('data-raw/prepare_dataset_name.R')"
 ```
 
 ### 3. Generate Documentation
 ```bash
+# Run as a separate command after step 2 completes
 R -e "devtools::document()"
 ```
 
 ### 4. Check the Package
 ```bash
-R -e "devtools::check()"
+# Run as a separate command after step 3 completes
+# For more reliable execution, use these options:
+R -e "options(devtools.name = 'Your name'); devtools::check(cran = FALSE)"
 ```
 
 ### 5. Version Control
