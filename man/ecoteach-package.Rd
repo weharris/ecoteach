@@ -122,7 +122,7 @@ Effects of aging on timing of hibernation and reproduction.
 \doi{10.5061/DRYAD.8004G37}
 }
 \author{
-\strong{Maintainer}: W. Edwin Harris \email{first.last@example.com} [copyright holder]
+\strong{Maintainer}: W. Edwin Harris \email{weh9000@gmail.com} [copyright holder]
 
 }
 \keyword{package}
