@@ -1,11 +1,13 @@
 Package: ecoteach
 Title: Educational Datasets for Ecology and Agriculture
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
+    person("W. Edwin", "Harris", , "first.last@example.com", role = c("aut", "cre", "cph"))
 Description: A collection of curated educational datasets for teaching ecology and
     agriculture concepts. Includes data on wildlife monitoring, plant treatments,
     and ecological observations with documentation and examples for educational use.
+    All datasets are derived from published scientific studies and are available
+    under CC0 or compatible licenses.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
