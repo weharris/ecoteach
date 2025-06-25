@@ -48,19 +48,28 @@ library(ecoteach)
 # Or use devtools::load_all() during development
 # devtools::load_all()
 
-# Load the dormouse hibernation dataset
-data(dormouse_hibernation)
+# Load the badger energy dataset
+data(badger_energy)
 
-# View the first few rows
-head(dormouse_hibernation)
+# View the data structure
+str(badger_energy)
+
+# Graph daily energy as a function of season
+badger_energy$season <- droplevels(badger_energy$season) 
+boxplot(daily_energy~season, data = badger_energy)
 ```
 
 ### Exploring the data
 
 The dormouse hibernation dataset contains data on hibernation patterns and body mass changes in edible dormice (*Glis glis*). We can create a simple visualization to explore how body mass changes during hibernation:
 
-```{r visualization, eval=FALSE}
+```{r visualization}
+
+# Load the data
+data(dormouse_hibernation)
+
 # Basic analysis of body mass loss during hibernation
+
 library(ggplot2)
 
 # Calculate percentage of body mass lost

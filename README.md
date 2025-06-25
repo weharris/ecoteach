@@ -46,40 +46,27 @@ library(ecoteach)
 # Or use devtools::load_all() during development
 # devtools::load_all()
 
-# Load the dormouse hibernation dataset
-data(dormouse_hibernation)
+# Load the badger energy dataset
+data(badger_energy)
 
-# View the first few rows
-head(dormouse_hibernation)
-#>   animal_id year_birth age log_age body_mass_before body_mass_after
-#> 1         1       2002   2  0.3010              261             167
-#> 2         1       2002   4  0.6021              265             227
-#> 3         1       2002   5  0.6990              315             182
-#> 4         1       2002   6  0.7782              318             173
-#> 5         1       2002   7  0.8451              264             189
-#> 6         1       2002   8  0.9031              190             135
-#>   hibernation_duration hibernation_start hibernation_end
-#> 1                  237          20.08.04        14.04.05
-#> 2                  335          23.05.06        23.04.07
-#> 3                  264          26.07.07        15.04.08
-#> 4                  357          07.05.08        29.04.09
-#> 5                  335          27.05.09        27.04.10
-#> 6                  181          21.09.10        21.03.11
-#>   hibernation_end_year_before body_mass_spring year  sex     diet age_death
-#> 1                        <NA>               NA 2004 male   medium        11
-#> 2                    10.05.06              215 2006 male   medium        11
-#> 3                    23.04.07              227 2007 male high fat        11
-#> 4                    15.04.08              182 2008 male   medium        11
-#> 5                    29.04.09              173 2009 male  protein        11
-#> 6                    27.04.10              189 2010 male high fat        11
-#>   repro_active
-#> 1          yes
-#> 2           no
-#> 3          yes
-#> 4           no
-#> 5           no
-#> 6          yes
+# View the data structure
+str(badger_energy)
+#> Classes 'tbl_df', 'tbl' and 'data.frame':    55 obs. of  8 variables:
+#>  $ ID          : Factor w/ 44 levels "12F","13F","14P",..: 1 2 3 4 4 5 6 7 7 8 ...
+#>  $ age         : Factor w/ 2 levels "cub","adult": 1 1 2 2 2 2 2 2 1 2 ...
+#>  $ sex         : Factor w/ 2 levels "F","M": 1 1 2 2 2 1 2 2 2 2 ...
+#>  $ group_size  : num  14 14 5 7 7 14 13 13 14 6 ...
+#>  $ body_mass   : num  3.2 3.3 8.9 8.9 8.7 6.4 8.9 9.9 3.7 8.5 ...
+#>  $ daily_energy: num  1389 2534 3156 2812 3040 ...
+#>  $ season      : Factor w/ 4 levels "Winter","Spring",..: 3 3 1 1 3 3 4 1 3 1 ...
+#>  $ disease     : Factor w/ 3 levels "Negative","Diseased",..: 1 1 1 1 1 1 2 1 1 1 ...
+
+# Graph daily energy as a function of season
+badger_energy$season <- droplevels(badger_energy$season) 
+boxplot(daily_energy~season, data = badger_energy)
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
 
 ### Exploring the data
 
@@ -89,7 +76,12 @@ simple visualization to explore how body mass changes during
 hibernation:
 
 ``` r
+
+# Load the data
+data(dormouse_hibernation)
+
 # Basic analysis of body mass loss during hibernation
+
 library(ggplot2)
 
 # Calculate percentage of body mass lost
@@ -105,6 +97,8 @@ ggplot(dormouse_hibernation, aes(x = sex, y = mass_loss_percent, fill = sex)) +
        y = "Body Mass Loss (%)") +
   theme_minimal()
 ```
+
+<img src="man/figures/README-visualization-1.png" width="100%" />
 
 This example shows how the dataset can be used to explore sex
 differences in hibernation physiology, which could be used in a teaching
