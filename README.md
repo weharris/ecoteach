@@ -121,7 +121,6 @@ The package includes the following datasets:
     #>  - `pangolin_habitat`
     #>  - `raccoondog_environment`
     #>  - `scavenger_community`
-    #>  - `simple_data`
     #>  - `vulture_diet`
     #>  - `whale_brains`
 
