@@ -16,8 +16,14 @@ cat("Original data structure:\n")
 str(raw_data)
 cat("\nFirst few rows:\n")
 head(raw_data)
-cat("\nUnique values in key columns:\n")
-sapply(raw_data[c("habitat", "species", "Behaviour")], function(x) unique(x))
+
+# Check column names to identify the correct ones
+cat("\nColumn names in the dataset:\n")
+colnames(raw_data)
+
+# Check unique values in key columns that actually exist
+cat("\nUnique values in key habitat column:\n")
+print(unique(raw_data$habitat))
 
 # Clean and prepare the data for package inclusion
 scavenger_community <- raw_data %>%
@@ -26,10 +32,6 @@ scavenger_community <- raw_data %>%
     # Site and sample identifiers
     id = factor(id),
     session = factor(session),
-    
-    # Species and behavior variables
-    species = factor(species),
-    Behaviour = factor(Behaviour),
     
     # Environmental variables
     habitat = factor(habitat, levels = c(0, 1), 
@@ -43,9 +45,9 @@ scavenger_community <- raw_data %>%
   mutate(
     altitude = as.numeric(altitude),
     sdepth = as.numeric(sdepth),
+    tamean = as.numeric(tamean),
     hosl = as.numeric(hosl),
     loghosl = as.numeric(loghosl),
-    tamean = as.numeric(tamean),
     samean = as.numeric(samean)
   ) %>%
   # Arrange logically by site ID, year, and Julian day

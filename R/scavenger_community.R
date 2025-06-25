@@ -1,15 +1,84 @@
-
-#' Scavenger community structure along an environmental gradient from boreal for...
+#' Scavenger community structure in Scandinavian ecosystems
 #'
-#' [ADD DETAILED DESCRIPTION HERE]
+#' This dataset contains observations of scavenger communities along an environmental gradient 
+#' from boreal forest to alpine tundra in central Scandinavia. The data was collected using 
+#' baited camera traps to quantify the structure of the winter scavenger community and assess 
+#' how climatic conditions affected spatial patterns of species occurrences at baits. The study 
+#' found that habitat type (forest or alpine tundra) and snow depth were main determinants of 
+#' community structure. Occurrence at baits by habitat generalists (red fox, golden eagle, and 
+#' common raven) typically increased at low temperatures and high snow depth, likely due to 
+#' increased energetic demands and lower abundance of natural prey in harsh winter conditions.
 #'
-#' @format A data frame with [X] rows and [Y] variables:
+#' @format A data frame with 1255 rows and 61 variables:
 #' \describe{
-#'   \item{column1}{Description of column 1}
-#'   \item{column2}{Description of column 2}
-#'   [ADD ALL COLUMNS HERE]
+#'   \item{id}{Site identifier (factor)}
+#'   \item{year}{Year of observation (numeric)}
+#'   \item{jd}{Julian day (numeric)}
+#'   \item{photo_sum}{Total number of photos (numeric)}
+#'   \item{empty}{Number of empty photos (numeric)}
+#'   \item{raven}{Number of photos with ravens (numeric)}
+#'   \item{crow}{Number of photos with crows (numeric)}
+#'   \item{magpie}{Number of photos with magpies (numeric)}
+#'   \item{eurjay}{Number of photos with Eurasian jays (numeric)}
+#'   \item{sibjay}{Number of photos with Siberian jays (numeric)}
+#'   \item{geagle}{Number of photos with golden eagles (numeric)}
+#'   \item{wteagle}{Number of photos with white-tailed eagles (numeric)}
+#'   \item{rlbuzz}{Number of photos with rough-legged buzzards (numeric)}
+#'   \item{goshawk}{Number of photos with goshawks (numeric)}
+#'   \item{redfox}{Number of photos with red foxes (numeric)}
+#'   \item{arcfox}{Number of photos with arctic foxes (numeric)}
+#'   \item{wolverine}{Number of photos with wolverines (numeric)}
+#'   \item{badger}{Number of photos with badgers (numeric)}
+#'   \item{pinemart}{Number of photos with pine martens (numeric)}
+#'   \item{mustelids}{Number of photos with other mustelids (numeric)}
+#'   \item{lb}{Total number of photos with large birds (numeric)}
+#'   \item{bird}{Total number of photos with birds (numeric)}
+#'   \item{mammal}{Total number of photos with mammals (numeric)}
+#'   \item{age}{Age of bait in days (numeric)}
+#'   \item{snow}{Snow presence indicator (numeric)}
+#'   \item{session}{Sampling session identifier (factor)}
+#'   \item{ravenm}{Raven presence/absence (numeric)}
+#'   \item{crowm}{Crow presence/absence (numeric)}
+#'   \item{magpiem}{Magpie presence/absence (numeric)}
+#'   \item{eurjaym}{Eurasian jay presence/absence (numeric)}
+#'   \item{sibjaym}{Siberian jay presence/absence (numeric)}
+#'   \item{geaglem}{Golden eagle presence/absence (numeric)}
+#'   \item{wteaglem}{White-tailed eagle presence/absence (numeric)}
+#'   \item{rlbuzzm}{Rough-legged buzzard presence/absence (numeric)}
+#'   \item{goshawkm}{Goshawk presence/absence (numeric)}
+#'   \item{redfoxm}{Red fox presence/absence (numeric)}
+#'   \item{arcfoxm}{Arctic fox presence/absence (numeric)}
+#'   \item{wolverinem}{Wolverine presence/absence (numeric)}
+#'   \item{badgerm}{Badger presence/absence (numeric)}
+#'   \item{pinemartm}{Pine marten presence/absence (numeric)}
+#'   \item{mustelidsm}{Other mustelids presence/absence (numeric)}
+#'   \item{arcfox.day}{Arctic fox detected that day (numeric)}
+#'   \item{redfox.day}{Red fox detected that day (numeric)}
+#'   \item{wolverine.day}{Wolverine detected that day (numeric)}
+#'   \item{raven.day}{Raven detected that day (numeric)}
+#'   \item{crow.day}{Crow detected that day (numeric)}
+#'   \item{magpie.day}{Magpie detected that day (numeric)}
+#'   \item{geagle.day}{Golden eagle detected that day (numeric)}
+#'   \item{wteagle.day}{White-tailed eagle detected that day (numeric)}
+#'   \item{badger.day}{Badger detected that day (numeric)}
+#'   \item{pinemart.day}{Pine marten detected that day (numeric)}
+#'   \item{eurjay.day}{Eurasian jay detected that day (numeric)}
+#'   \item{sibjay.day}{Siberian jay detected that day (numeric)}
+#'   \item{lb.day}{Large bird detected that day (numeric)}
+#'   \item{se}{Session identifier (numeric)}
+#'   \item{bird.day}{Any bird detected that day (numeric)}
+#'   \item{mammal.day}{Any mammal detected that day (numeric)}
+#'   \item{length}{Length of session (numeric)}
+#'   \item{samean}{Mean solar angle (numeric)}
+#'   \item{tamean}{Mean temperature (numeric)}
+#'   \item{habitat}{Habitat type: "Alpine tundra" or "Boreal forest" (factor)}
+#'   \item{hosl}{Hours of sunlight (numeric)}
+#'   \item{scover}{Snow cover: "No snow cover" or "Snow cover" (factor)}
+#'   \item{loghosl}{Log-transformed hours of sunlight (numeric)}
+#'   \item{altitude}{Altitude in meters (numeric)}
+#'   \item{sdepth}{Snow depth in cm (numeric)}
 #' }
-#' @source Gomo, Gjermund and Rød-Eriksen, Lars and Andreassen, Harry P. and Mattisson, Jenny and Odden, Morten and Devineau, Olivier and Eide, Nina E. (2020). Scavenger community structure along an environmental gradient from boreal forest to alpine tundra in Scandinavia. NA Digital Repository. 
+#' @source Gomo, Gjermund and Rød-Eriksen, Lars and Andreassen, Harry P. and Mattisson, Jenny and Odden, Morten and Devineau, Olivier and Eide, Nina E. (2020). Scavenger community structure along an environmental gradient from boreal forest to alpine tundra in Scandinavia. Ecology and Evolution. 
 #'   \doi{10.1002/ece3.6834}
 #' @examples
 #' \donttest{
@@ -20,7 +89,38 @@
 #' head(scavenger_community)
 #' summary(scavenger_community)
 #' 
-#' # Add relevant examples here
+#' # Species richness by habitat type
+#' if(require(dplyr)) {
+#'   # Count number of unique species by examining columns with species data
+#'   scavenger_community %>%
+#'     group_by(habitat) %>%
+#'     summarize(
+#'       raven_present = sum(ravenm > 0, na.rm = TRUE),
+#'       redfox_present = sum(redfoxm > 0, na.rm = TRUE),
+#'       wolverine_present = sum(wolverinem > 0, na.rm = TRUE),
+#'       total_species = raven_present + redfox_present + wolverine_present
+#'     )
+#' }
+#' 
+#' # Compare bird vs mammal occurrence between habitats
+#' if(require(dplyr)) {
+#'   scavenger_community %>%
+#'     group_by(habitat) %>%
+#'     summarize(
+#'       bird_observations = sum(bird, na.rm = TRUE),
+#'       mammal_observations = sum(mammal, na.rm = TRUE),
+#'       observation_ratio = bird_observations / mammal_observations
+#'     )
+#' }
+#' 
+#' # Visualize snow depth distribution by habitat
+#' if(require(ggplot2)) {
+#'   ggplot(scavenger_community, aes(x = sdepth, fill = habitat)) +
+#'     geom_histogram(position = "dodge", bins = 20) +
+#'     labs(title = "Snow depth by habitat type",
+#'          x = "Snow depth (cm)",
+#'          y = "Count")
+#' }
 #' }
 "scavenger_community"
 
