@@ -100,7 +100,14 @@ The berberis treatment dataset demonstrates principles of experimental design:
 data(berberis_treatment)
 
 # View the experimental design structure
-table(berberis_treatment$treatment, berberis_treatment$site)
+# Using a simpler approach to avoid length issues
+table(berberis_treatment$treatment)
+table(berberis_treatment$site)
+
+# Cross-tabulation of treatment by site
+if(requireNamespace("dplyr", quietly = TRUE)) {
+  dplyr::count(berberis_treatment, treatment, site)
+}
 ```
 
 Students can analyze how different treatments affect invasive species management:
