@@ -22,6 +22,7 @@
 #'   \item \code{\link{Dsimulans_matechoice}}: Mate copying data for fruit flies
 #'   \item \code{\link{carrion_arrivals}}: Vertebrate scavenger visits to roe deer carrion
 #'   \item \code{\link{scavenger_community}}: Scavenger community structure along environmental gradients
+#'   \item \code{\link{badger_energy}}: Energy expenditure data for European badgers with tuberculosis
 #'   \item \code{\link{simple_data}}: A simple example dataset for teaching purposes
 #' }
 #'
@@ -88,6 +89,10 @@
 #' Gomo, G., Rød-Eriksen, L., Andreassen, H. P., Mattisson, J., Odden, M., Devineau, O., & Eide, N. E. (2020).
 #' Scavenger community structure along an environmental gradient from boreal forest to alpine tundra in Scandinavia.
 #' \doi{10.1002/ece3.6834}
+#'
+#' Barbour, K., McClune, D. W., Delahay, R. J., Speakman, J. R., McGowan, N. E., Kostka, B., Montgomery, I. W., Marks, N. J., & Scantlebury, D. M. (2019).
+#' No energetic cost of tuberculosis infection in European badgers (Meles meles).
+#' \doi{10.5061/DRYAD.MN84H20}
 #'
 #' @examples
 #' # Load a dataset
