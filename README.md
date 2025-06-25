@@ -108,26 +108,22 @@ context to demonstrate boxplots, t-tests, or ANOVA.
 
 The package includes the following datasets:
 
-- `badger_energy`: Energy expenditure data for European badgers with
-  tuberculosis
-- `barnswallow_brightness`: Plumage brightness data for barn swallows
-- `berberis_treatment`: Data on invasive Berberis management treatments
-- `carrion_arrivals`: Vertebrate scavenger visits to roe deer carrion
-- `chimpanzee_cameras`: Camera trap detection data for wild chimpanzees
-- `dormouse_hibernation`: Hibernation and reproduction data for edible
-  dormice
-- `Dsimulans_matechoice`: Mate copying data for fruit flies
-- `elephant_farmers`: Agricultural use metrics for elephants
-- `lion_reproduction`: Reproductive data for Galapagos sea lions
-- `magellanic_penguins`: Long-term monitoring data on Magellanic
-  penguins
-- `pangolin_habitat`: Habitat occupancy data for Chinese pangolins
-- `raccoondog_environment`: Raccoon dog activity and environmental
-  factors in China
-- `scavenger_community`: Scavenger community structure along
-  environmental gradients
-- `vulture_diet`: Diet composition analysis of African vultures
-- `whale_brains`: Brain size evolution data for cetaceans
+    #> - `badger_energy`
+    #>  - `barnswallow_brightness`
+    #>  - `berberis_treatment`
+    #>  - `carrion_arrivals`
+    #>  - `chimpanzee_cameras`
+    #>  - `dormouse_hibernation`
+    #>  - `Dsimulans_matechoice`
+    #>  - `elephant_farmers`
+    #>  - `lion_reproduction`
+    #>  - `magellanic_penguins`
+    #>  - `pangolin_habitat`
+    #>  - `raccoondog_environment`
+    #>  - `scavenger_community`
+    #>  - `simple_data`
+    #>  - `vulture_diet`
+    #>  - `whale_brains`
 
 Each dataset includes comprehensive documentation with details about the
 variables, source references, and suggested analyses for teaching
