@@ -25,6 +25,7 @@
 #'   \item \code{\link{badger_energy}}: Energy expenditure data for European badgers with tuberculosis
 #'   \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
 #'   \item \code{\link{dormouse_hibernation}}: Hibernation and reproduction data for edible dormice
+#'   \item \code{\link{redpanda_moves}}: Movement patterns and weather effects on red pandas
 #' }
 #'
 #' All datasets are provided in tidy format, with factors appropriately coded,
@@ -55,7 +56,7 @@
 #' \doi{10.5061/dryad.1ns1rn8qf}
 #'
 #' Crunchant, A-S., Borchers, D., Kuehl, H., & Piel, A. K. (2020). 
-#' Listening and watching: do camera traps or acoustic sensors more efficiently detect wild chimpanzees in an open habitat?
+#' Listening and watching: Do camera traps or acoustic sensors more efficiently detect wild chimpanzees in an open habitat?
 #' \doi{10.5061/dryad.5dv41ns34}
 #'
 #' Kalberer, S., Meise, K., Trillmich, F., & Krüger, O. (2018).
@@ -102,6 +103,10 @@
 #' Bieber, C., Turbill, C., & Ruf, T. (2019).
 #' Effects of aging on timing of hibernation and reproduction.
 #' \doi{10.5061/DRYAD.8004G37}
+#'
+#' Damber, B. (2024).
+#' Red pandas on the move: Weather and disturbance effects on habitat specialists.
+#' \doi{10.5061/dryad.cjsxksngd}
 #'
 #' @examples
 #' # Load a dataset
