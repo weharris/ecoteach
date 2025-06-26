@@ -1,6 +1,5 @@
-
-# Data preparation for Data from: Red
-# Source: [AUTHOR] et al. (2024) - Dryad repository  
+# Data preparation for Red pandas on the move: weather and disturbance effects on habitat specialists
+# Source: Damber, Bista (2024) - Dryad repository  
 # DOI: https://doi.org/10.5061/dryad.cjsxksngd
 # License: CC0 1.0 Universal
 # Prepared: 2025-06-26
@@ -18,20 +17,21 @@ str(raw_data)
 cat("\nFirst few rows:\n")
 head(raw_data)
 cat("\nUnique values in key columns:\n")
-# Add specific columns to check:
-# sapply(raw_data[c("column1", "column2")], function(x) unique(x))
+sapply(raw_data[c("Sex", "Age", "Precipitation", "Snow_cover", "Snow_age")], function(x) unique(x))
 
 # Clean and prepare the data for package inclusion
 redpanda_moves <- raw_data %>%
   # Convert categorical variables to factors
   mutate(
-    # Add your factor conversions here
-    # column_name = as.factor(column_name)
+    Animal_Id = as.factor(Animal_Id),
+    Sex = as.factor(Sex),
+    Age = as.factor(Age),
+    Precipitation = as.factor(Precipitation),
+    Snow_cover = as.factor(Snow_cover),
+    Snow_age = as.factor(Snow_age)
   ) %>%
-  # Convert dates if needed
-  # mutate(date_column = as.Date(date_column, format = "%d/%m/%Y")) %>%
   # Arrange logically
-  arrange()  # Add appropriate columns
+  arrange(Animal_Id, Sex, Age)
 
 # Verify the cleaned data
 cat("\nCleaned data structure:\n")
@@ -44,6 +44,6 @@ sapply(redpanda_moves, function(x) sum(is.na(x)))
 # Save to package data (compressed .rda format for CRAN)
 usethis::use_data(redpanda_moves, overwrite = TRUE)
 
-cat("\n✅ Dataset '", dataset_name, "' prepared and saved!\n")
+cat("\n✅ Dataset 'redpanda_moves' prepared and saved!\n")
 cat("Size of final dataset:", object.size(redpanda_moves), "bytes\n")
 
