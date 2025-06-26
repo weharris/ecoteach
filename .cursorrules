@@ -95,6 +95,7 @@ ecoteach/
 - Complete documentation required for all datasets
 - No browser storage APIs (localStorage, sessionStorage)
 - Use `\donttest{}` around slow examples
+- Always update the ecoteach-package.R file after adding a new dataset 
 
 ### 2. Dataset Standards
 - Data stored as compressed .rda files in data/ folder
