@@ -1,0 +1,70 @@
+#' Leaf-Cutting Ant Herbivory Under Human Disturbance
+#'
+#' This dataset examines how anthropogenic disturbance and seasonality affect 
+#' herbivory rates by leaf-cutting ants (Atta opaciceps) in the Caatinga dry forest 
+#' of northeastern Brazil. The data include measurements of herbivory percentages 
+#' from eight ant colonies across different disturbance intensities during both 
+#' wet and dry seasons.
+#'
+#' The study found that human disturbance promotes higher herbivory rates by 
+#' leaf-cutting ants, with particularly strong effects during the dry season.
+#' Despite the low productivity of Caatinga vegetation, these ants maintain 
+#' foraging activity even during peak dry season by utilizing whatever resources 
+#' are available, highlighting their adaptive capacity in human-modified landscapes.
+#'
+#' @format A data frame with 16 rows and 4 variables:
+#' \describe{
+#'   \item{Colony}{Integer, unique identifier for each ant colony studied}
+#'   \item{Disturbance_Index}{Numeric, quantitative measure of anthropogenic disturbance 
+#'   intensity (higher values indicate greater disturbance from activities like 
+#'   firewood collection and livestock grazing)}
+#'   \item{season}{Factor with levels "Dry" and "Wet", indicating the season when 
+#'   measurements were taken}
+#'   \item{herbivory_percent}{Numeric, percentage of available vegetation consumed 
+#'   by the ant colony}
+#' }
+#' @details
+#' The researchers measured herbivory rates across a gradient of human disturbance
+#' in the Catimbau National Park, a protected area in northeastern Brazil. The study
+#' reveals that leaf-cutting ants can maintain high rates of herbivory even in
+#' disturbed and seasonally dry environments, which has implications for understanding
+#' ecosystem functioning in human-modified tropical dry forests.
+#' 
+#' Collection period: 2015-2016
+#' Study location: Catimbau National Park, Pernambuco, Brazil (8°24'00" - 8°36'35" S, 
+#' 37°09'30" - 37°14'40" W)
+#'
+#' @source Siqueira, F. F. S., Ribeiro-Neto, J. D., Tabarelli, M., Andersen, A. N., 
+#'   Wirth, R., & Leal, I. R. (2018). Data from: Human disturbance promotes herbivory 
+#'   by leaf-cutting ants in the Caatinga dry forest. Dryad Digital Repository. 
+#'   \doi{10.5061/DRYAD.KP59G3P}
+#' @examples
+#' \donttest{
+#' # Load the dataset
+#' data(leafcutter_disturbance)
+#' 
+#' # Basic exploration
+#' head(leafcutter_disturbance)
+#' summary(leafcutter_disturbance)
+#' 
+#' # Compare herbivory between seasons
+#' boxplot(herbivory_percent ~ season, data = leafcutter_disturbance,
+#'         main = "Leaf-Cutting Ant Herbivory by Season",
+#'         xlab = "Season", ylab = "Herbivory (%)")
+#'         
+#' # Examine relationship between disturbance and herbivory
+#' plot(leafcutter_disturbance$Disturbance_Index, 
+#'      leafcutter_disturbance$herbivory_percent,
+#'      col = as.numeric(leafcutter_disturbance$season),
+#'      pch = 16, cex = 1.2,
+#'      xlab = "Disturbance Index", ylab = "Herbivory (%)",
+#'      main = "Ant Herbivory vs. Human Disturbance")
+#' legend("topleft", legend = levels(leafcutter_disturbance$season), 
+#'        col = 1:nlevels(leafcutter_disturbance$season), pch = 16)
+#'        
+#' # Linear model of disturbance effect on herbivory
+#' model <- lm(herbivory_percent ~ Disturbance_Index * season, 
+#'             data = leafcutter_disturbance)
+#' summary(model)
+#' }
+"leafcutter_disturbance" 
