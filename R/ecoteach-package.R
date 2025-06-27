@@ -114,6 +114,10 @@
 #' Estimates of Shark at-vessel, Post-release Mortality, and Retention Ban Effects on Stopping Overfishing.
 #' \doi{10.5061/DRYAD.0P2NGF27T}
 #'
+#' Siqueira, F. F. S., Ribeiro-Neto, J. D., Tabarelli, M., Andersen, A. N., Wirth, R., & Leal, I. R. (2018).
+#' Human disturbance promotes herbivory by leaf-cutting ants in the Caatinga dry forest.
+#' \doi{10.5061/DRYAD.KP59G3P}
+#'
 #' @examples
 #' # Load a dataset
 #' data(vulture_diet)
