@@ -31,6 +31,7 @@ The package includes the following datasets:
 \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
 \item \code{\link{dormouse_hibernation}}: Hibernation and reproduction data for edible dormice
 \item \code{\link{redpanda_moves}}: Movement patterns and weather effects on red pandas
+\item \code{\link{shark_fishing}}: Shark mortality predictions from fishing operations
 }
 
 All datasets are provided in tidy format, with factors appropriately coded,
@@ -124,6 +125,10 @@ Effects of aging on timing of hibernation and reproduction.
 Damber, B. (2024).
 Red pandas on the move: Weather and disturbance effects on habitat specialists.
 \doi{10.5061/dryad.cjsxksngd}
+
+Feitosa, L. M., Caughman, A., D'Costa, N., Orofino, S., Burns, E., Schiller, L., Worm, B., & Bradley, D. (2025).
+Estimates of Shark at-vessel, Post-release Mortality, and Retention Ban Effects on Stopping Overfishing.
+\doi{10.5061/DRYAD.0P2NGF27T}
 }
 \author{
 \strong{Maintainer}: W. Edwin Harris \email{weh9000@gmail.com} [copyright holder]
