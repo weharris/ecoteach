@@ -28,6 +28,7 @@
 #'   \item \code{\link{shark_fishing}}: Shark mortality predictions from fishing operations
 #'   \item \code{\link{vulture_diet}}: Diet composition analysis of African vultures
 #'   \item \code{\link{whale_brains}}: Brain size evolution data for cetaceans
+#'   \item \code{\link{wren_noise}}: Southern house wren song response to noise and territorial intrusion
 #' }
 #'
 #' All datasets are provided in tidy format, with factors appropriately coded,
@@ -117,6 +118,10 @@
 #' Siqueira, F. F. S., Ribeiro-Neto, J. D., Tabarelli, M., Andersen, A. N., Wirth, R., & Leal, I. R. (2018).
 #' Human disturbance promotes herbivory by leaf-cutting ants in the Caatinga dry forest.
 #' \doi{10.5061/DRYAD.KP59G3P}
+#'
+#' Diniz, P., & Duca, C. (2022).
+#' Anthropogenic noise, song, and territorial aggression in southern house wrens.
+#' \doi{10.5061/DRYAD.TTDZ08M00}
 #'
 #' @examples
 #' # Load a dataset
