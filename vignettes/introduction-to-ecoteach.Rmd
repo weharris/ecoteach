@@ -34,6 +34,7 @@ The package includes the following datasets:
 - `dormouse_hibernation`: Hibernation and reproduction data for edible dormice
 - `Dsimulans_matechoice`: Mate copying data for fruit flies
 - `elephant_farmers`: Agricultural use metrics for elephants
+- `leafcutter_disturbance`: Leaf-cutting ant herbivory under human disturbance
 - `lion_reproduction`: Reproductive data for Galapagos sea lions
 - `magellanic_penguins`: Long-term monitoring data on Magellanic penguins
 - `pangolin_habitat`: Habitat occupancy data for Chinese pangolins
