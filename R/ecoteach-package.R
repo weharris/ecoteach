@@ -109,6 +109,10 @@
 #' Red pandas on the move: Weather and disturbance effects on habitat specialists.
 #' \doi{10.5061/dryad.cjsxksngd}
 #'
+#' Feitosa, L. M., Caughman, A., D'Costa, N., Orofino, S., Burns, E., Schiller, L., Worm, B., & Bradley, D. (2025).
+#' Estimates of Shark at-vessel, Post-release Mortality, and Retention Ban Effects on Stopping Overfishing.
+#' \doi{10.5061/DRYAD.0P2NGF27T}
+#'
 #' @examples
 #' # Load a dataset
 #' data(vulture_diet)
