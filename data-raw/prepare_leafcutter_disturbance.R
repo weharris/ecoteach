@@ -19,6 +19,8 @@ head(raw_data)
 
 # Clean and prepare the data for package inclusion
 leafcutter_disturbance <- raw_data %>%
+  # Fix column names to remove spaces
+  rename(Disturbance_Index = `Disturbance Index`) %>%
   # Convert to long format for easier analysis
   tidyr::pivot_longer(
     cols = c(Dry_pct_herbivory, Wet_pct_herbivory),
