@@ -1,0 +1,465 @@
+This \_readme_datasetname file was generated on 20/08/2024 by Leonardo Manir Feitosa
+
+\-------------------
+
+GENERAL INFORMATION
+
+\-------------------
+
+Author Information:
+
+```
+Principal Investigator: Darcy Bradley
+
+Associate or Co-investigator: -
+
+Primary Contact: darcy.bradley@tnc.org
+
+Alternate Contact(s): -
+```
+
+Date of data collection: end date - 25/06/2024
+
+Information about funding sources or sponsorship that supported the collection of the data:
+
+```
+This work received funding from the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (Brazil) under project number 001 and National Science Foundation Graduate Research Fellowship Program (Award 2139319).
+```
+
+\--------------------------
+
+PROJECT INFORMATION
+
+\--------------------------
+
+Project name: Retention bans are insufficient to stop shark overfishing
+
+Project description:
+
+```
+Here, we develop a new dataset of at-vessel (AVM) and post-release (PRM) mortality for elasmobranchs, obtained through a literature review of papers published in peer-reviewed journals and grey literature. 
+
+The empirical data contains species-specific values for AVM and/or PRM measured and/or estimated for different fishing gears. 
+
+These data comprise 160 studies and span 147 taxa, 99 of which are sharks and 40 are batoids, including 17 families of sharks and 9 of batoids. 
+
+Further data columns include the gear class (longline, gillnet, trawl, etc.), the type of fishery where the data came from (multispecies, single species, or research),
+
+the ocean where samples were collected, the habitat where fishing occurred (pelagic, coastal, deep-sea), if the mortality estimate referred to AVM or PRM, 
+
+the proportion of individuals from the total catch that died, the method by which mortality was assessed, the study duration period, the sample size, and the frequency of sampling.
+```
+
+Github: [https://github.com/lmfeitos/elasmo-prm](https://github.com/lmfeitos/elasmo-prm)
+
+\--------------------------
+
+SHARING/ACCESS INFORMATION
+
+\--------------------------
+
+Licenses/restrictions placed on the data, or limitations of reuse: CC0 - Creative Commons License
+
+Recommended citation for the data: Feitosa, L. M., Caughman, A. M., D'Costa, N., Orofino, S., Burns, E., Schiller, L., Worm, B., Bradley, D. (2024). Observed at-vessel and post-release mortality from literature review. Dryad. Dataset. doi:
+
+Citation for and links to publications that cite or use the data:
+
+```
+1\. Feitosa, L. M., Caughman, A. M., D'Costa, N., Orofino, S., Burns, E., Schiller, L., Worm, B., Bradley, D. (2025). Retention Bans Are Beneficial but Insufficient to Stop Shark Overfishing. Fish and Fisheries, 0:1-15.
+```
+
+## File list:
+
+```
+1\.  elasmobranch_avm_prm_lit_review.csv
+2\.  mortality_predictions.csv
+3\.  intrinsic_pop_growth_rates.csv
+4\.  policy_sim.csv
+```
+
+If data was derived from another source, list source: Citations for each data source contained within the CSV
+
+\--------------------
+
+## Dataset: elasmobranch\_avm\_prm\_lit\_review\.csv
+
+\--------------------
+
+DATA DESCRIPTION & FILE OVERVIEW
+
+\--------------------
+
+Description: This dataset contains empirical and estimated species-specific at-vessel and post-release mortality estimates for 147 shark and ray species gathered from a targeted literature review. Other information about the source references were included such as sample size and study duration. Each reference is included in the CSV file.
+
+\--------------------------
+
+METHODOLOGICAL INFORMATION
+
+\--------------------------
+
+Description of methods used for collection/generation of data:
+
+```
+Following from the Supplementary Methods of Worm et al (2024), we conducted a search of peer-reviewed literature 
+
+for empirical studies and reviews reporting species-specific at-vessel and/or post-release mortality estimates for sharks and rays.
+
+While at-vessel mortality was assessed visually in all studies that reported it, post-release mortality was assessed with a variety of methods.
+
+These include satellite tags, accelerometers, individuals caught and kept at on-board pens for a given time before being released, and physiological stress models.
+```
+
+Methods for processing the data: Data were hand recorded during the literature review.
+
+Describe any quality-assurance procedures performed on the data:
+
+```
+Studies that did not report species-specific mortality estimates as a proportion of the total number of individuals caught for each species and the gear used were excluded from the dataset.
+```
+
+People involved with sample collection, processing, analysis and/or submission: Leonardo Manir Feitosa, Alicia Caughman, Nidhi D'Costa, Sara Orofino, Echelle Burns, Darcy Bradley.
+
+\--------------------------
+
+DATA-SPECIFIC INFORMATION
+
+\--------------------------
+
+Number of variables: 20
+
+Number of cases/rows: 1904
+
+Variable list, defining any abbreviations, units of measure, codes or symbols used:
+
+```
+family - scientific family designation for species
+
+hook - type of hook used in the longline fishery
+
+leader - type of material used in the longline leader
+
+location - broad geographic location where data were collected (Gulf of Mexico, Florida, Biscayne Bay, etc)
+
+flagstate - country to which the vessels involved in the data collection are registered (only applicable to logbook data)
+
+source - reference data was recorded from
+
+group - dummy variable to assign a broad taxonomic group (shark or batoid) to a species
+
+estimate - proportion of individuals corresponding to each estimate type
+
+sample_size - number of individuals caught in each study
+
+scientific_name - scientific name for species
+
+gear_class - fishing gear employed in each study
+
+estimate_type - type of mortality estimate
+
+max_size_cm - maximum size each species is known to reach in cm
+
+median_depth - median depth of occurrence for each species
+
+reproductive_mode - type of reproductive mode employed by each species (placental viviparity, yolk-sac viviparity, oophagy, oviparity, hystotrophy)
+
+ventilation_method - type of respiratory method used by the species (ram or stationary)
+
+estimate_type - type of mortality estimate (at-vessel, post-release)
+
+redlist_category - IUCN conservation status
+
+genus - genus of each species
+
+ac - active hypoxia tolerance from Penn & Deustch (2024)
+
+habitat - main habitat where species are known to occur modified from FishBase into a dummy variable (pelagic or demersal) 
+
+```
+
+Missing data codes:
+
+```
+NA - data missing
+```
+
+
+\--------------------
+
+## Dataset: mortality\_predictions.csv
+
+\--------------------
+
+DATA DESCRIPTION & FILE OVERVIEW
+
+\--------------------
+
+Description: This dataset contains mean estimates of species-specific at-vessel and post-release mortality for 341 shark species known to be threatened by longlines and/or gillnets obtained through a random forest regression model described in Feitosa & Caughman et al (2025).
+
+\--------------------------
+
+METHODOLOGICAL INFORMATION
+
+\--------------------------
+
+Description of methods used for collection/generation of data:
+
+```
+The random forest regression models were run separately for longline AVM and PRM, and gillnet AVM. Proportion of individuals dead from each species was predicted by each species 
+
+ventilation method - type of respiratory method used by the species (ram or stationary), the maximum size each species is known to reach in cm, their total length in cm,
+
+their median depth of occurrence, the type of reproductive mode employed by each species (lecithotrophic oviparity, lecithotrophic viviparity, matrotrophic viviparity),
+
+the type of habitat to which the species is more strongly associated (pelagic or demersal), and the level of active hypoxia tolerance. 
+
+For longline AVM, ventilation method, median depth (m), reproductive mode, and active hypoxia tolerance were selected in the model runs, but for the PRM model the ventilation method 
+
+was removed due to lower model performance, while maximum size (cm) was included. The gillnet AVM model consisted of ventilation method, median depth (m), reproductive mode, maximum size (cm),
+
+and active hypoxia tolerance. We then used these models to predict AVM and PRM for all species known to be caught by longline and gillnet gears.
+
+```
+
+Methods for processing the data: Data were obtained through random forest regression models described above.
+
+Describe any quality-assurance procedures performed on the data:
+
+```
+We used 10-fold cross-validation to tune the models' hyperparameters and did model selection by removing variables with the least importance and comparing resulting RMSE and R2 values.
+
+We chose the best models based on the lowest RMSE and highest R2. Due to data limitations, we only split the data into training and testing sets for the longline AVM model, and instead used the 
+
+whole gillnet AVM and longline PRM datasets in the random forest regression modeling exercise. The performance of these models was evaluated through cross-validation as well. Given expected uncertainties associated 
+
+with the all models, we also computed the first, second (median), and third quartiles for our predictions.
+```
+
+People involved with sample collection, processing, analysis and/or submission: Leonardo Manir Feitosa, Alicia Caughman, Darcy Bradley.
+
+\--------------------------
+
+DATA-SPECIFIC INFORMATION
+
+\--------------------------
+
+Number of variables: 12
+
+Number of cases/rows: 982
+
+Variable list, defining any abbreviations, units of measure, codes or symbols used:
+
+```
+scientific_name - scientific name for species
+
+family - taxonomic family of each species
+
+reproductive_mode - type of reproductive mode employed by each species (placental viviparity, yolk-sac viviparity, oophagy, oviparity, hystotrophy)
+
+ac - active hypoxia tolerance from Penn & Deustch (2024)
+
+median_depth - median depth of occurrence for each species
+
+max_size_cm - maximum size each species is known to reach in cm
+
+ventilation_method - type of respiratory method used by the species (ram or stationary)
+
+habitat - main habitat where species are known to occur modified from FishBase into a dummy variable (pelagic or demersal) 
+
+estimate_type - type of mortality estimate (at-vessel, post-release) associated with each gear
+
+mortality_prop - mean species-specific mortality estimated
+
+gear_class - fishing gear employed in each study
+
+estimate_type - type of mortality estimate (AVM, PRM)
+
+	
+```
+
+Missing data codes:
+
+```
+NA - data missing
+```
+
+\--------------------
+
+## Dataset:  intrinsic\_pop\_growth\_rates.csv
+
+\--------------------
+
+DATA DESCRIPTION & FILE OVERVIEW
+
+\--------------------
+
+Description: This dataset contains estimates of species-specific intrinsic population growth rates for 178 shark and ray species obtained through a targeted literature review.
+
+\--------------------------
+
+METHODOLOGICAL INFORMATION
+
+\--------------------------
+
+Description of methods used for collection/generation of data:
+
+```
+We did a targeted literature review looking for species-specific intrinsic population growth rates from published peer-reviewed articles. Values were either retrieved from 
+
+datasets made available by authors or from those directly reported in the publications. 
+```
+
+Methods for processing the data:
+
+```
+Since papers reported different metrics (r or lambda), we further transformed lambda values into r values by calculating the natural logarithm of the data reported as lambda.
+
+Some species had values of r (or lambda) reported from multiple stocks, so we calculated mean r values for these species and used these for subsequent analyses.
+```
+
+Describe any quality-assurance procedures performed on the data: N/A.
+
+People involved with sample collection, processing, analysis and/or submission: Leonardo Manir Feitosa, Alicia Caughman.
+
+\--------------------------
+
+DATA-SPECIFIC INFORMATION
+
+\--------------------------
+
+Number of variables: 8
+
+Number of cases/rows: 359
+
+Variable list, defining any abbreviations, units of measure, codes or symbols used:
+
+```
+scientific_name - scientific name for species
+
+areas - areas where r (or lambda) values were calculated from
+
+pop_growth_rate_measure - categorical description of which kind of population growth rate is reported
+
+value - raw population growth rate value reported from each study
+
+r_value - intrinsic population growth rate, either corresponding to the same value reported by each study (if reporting r) or converted from lambda to r
+
+mean_r - mean intrinsic population growth rate calculated for each species
+
+reference - source from which the intrinsic population growth rates were obtained
+
+observations - useful notes from each study
+
+```
+
+Missing data codes:
+
+```
+NA - data missing
+```
+
+\--------------------
+
+## Dataset: policy\_sim.csv
+
+\--------------------
+
+DATA DESCRIPTION & FILE OVERVIEW
+
+\--------------------
+
+Description: This dataset contains estimates of species-specific at-vessel and post-release mortality for 341 shark species obtained through a random forest regression model and the policy simulation described in Feitosa & Caughman et al (2025).
+
+\--------------------------
+
+METHODOLOGICAL INFORMATION
+
+\--------------------------
+
+Description of methods used for collection/generation of data:
+
+```
+The policy simulation evaluated if retention prohibitions could be an effective tool to reduce shark mortality in longline fisheries given their predicted fishing-induced
+
+mortality. For that, we used the AVM and PRM estimates from the longline AVM model to simulate the change in each shark species N/K ratio through time following a retention prohibition. 
+
+We simulate this policy scenario with a logistic growth model with mortality proportional to the species population size and fishing intensity, 
+
+which we simulated under three scenarios (low - 1.5*FMSY, medium - 2*FMSY, and high - 3*FMSY - intensity). Their mortality was affected by the predicted mortality proportions from the random forest regression model.
+
+To quantify the population effects of the policy, we then calculated the percent decrease in fishing mortality between the full retention and prohibited retention scenarios for each shark species i. 
+
+We then calculated PMAX: the proportion of the population of species i that can be caught and discarded and still experience an overall fishing mortality of FMSY as a result of discarding due to the retention prohibition.
+
+Finally, we calculated the ratio PMAX/FMSY to determine the effectiveness of a retention prohibition at reducing fishing mortality for individual shark species.
+
+A ratio of 1 (where PMAX = FMSY) indicates no effect of the retention prohibition; larger values of PMAX/FMSY >1 indicate larger positive effects of a retention prohibition at reducing shark fishing mortality. There are no scenarios where PMAX/FMSY < 1.
+```
+
+Methods for processing the data: Data were obtained through random forest regression models described above.
+
+Describe any quality-assurance procedures performed on the data:
+
+```
+Given expected uncertainties associated with the longline AVM predictions, we used the first, second (median), and third quartiles in the policy simulation.
+```
+
+People involved with sample collection, processing, analysis and/or submission: Leonardo Manir Feitosa, Alicia Caughman, Darcy Bradley.
+
+\--------------------------
+
+DATA-SPECIFIC INFORMATION
+
+\--------------------------
+
+Number of variables: 17
+
+Number of cases/rows: 4273
+
+Variable list, defining any abbreviations, units of measure, codes or symbols used:
+
+```
+scientific_name - scientific name for species
+
+msy_multiple_fishing - level of fishing intensity employed in the policy simulation
+
+fishing_mort_bau - fishing mortality predicted for full retention scenario
+
+fishing_mort_rb - fishing mortality predicted for retention ban scenario
+
+percent_mort_diff - percentage of mortality difference between full retention and median mortality based on the policy simulation
+
+absolute_mort_diff - difference between absolute fishing mortality values from full retention and retention ban scenarios
+
+mort_scenario - categorical variable with the policy simulation scenarios
+
+simulation_avm - AVM value used in the policy simulation
+
+simulation_prm - PRM value used in the policy simulation
+
+n_div_k - metric of population size: population size (N) divided by the carrying capacity (K)
+
+pred_avm_25 - first quartile predicted for AVM
+
+pred_avm_mean- second quartile predicted for AVM
+
+pred_avm_75 - third quartile predicted for AVM
+
+pred_prm_25 - first quartile predicted for PRM
+
+pred_prm_mean - second quartile predicted for PRM
+
+pred_prm_75 - third quartile predicted for PRM
+
+p_fmsy - PMAX/FMSY ratio (values only present for msy_multiple_fishing = 1)
+
+```
+
+Missing data codes:
+
+```
+NA - data missing
+```
+
+\--------------------------
+
+This \_readme_datasetname file was generated on 20082024 by Leonardo Manir Feitosa
