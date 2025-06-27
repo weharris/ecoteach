@@ -10,23 +10,24 @@
 #' @details
 #' The package includes the following datasets:
 #' \itemize{
-#'   \item \code{\link{berberis_treatment}}: Data on invasive Berberis management treatments
-#'   \item \code{\link{magellanic_penguins}}: Long-term monitoring data on Magellanic penguins
-#'   \item \code{\link{vulture_diet}}: Diet composition analysis of African vultures
-#'   \item \code{\link{chimpanzee_cameras}}: Camera trap detection data for wild chimpanzees
-#'   \item \code{\link{lion_reproduction}}: Reproductive data for Galapagos sea lions
-#'   \item \code{\link{barnswallow_brightness}}: Plumage brightness data for barn swallows
-#'   \item \code{\link{pangolin_habitat}}: Habitat occupancy data for Chinese pangolins
-#'   \item \code{\link{whale_brains}}: Brain size evolution data for cetaceans
-#'   \item \code{\link{elephant_farmers}}: Agricultural use metrics for elephants
-#'   \item \code{\link{Dsimulans_matechoice}}: Mate copying data for fruit flies
-#'   \item \code{\link{carrion_arrivals}}: Vertebrate scavenger visits to roe deer carrion
-#'   \item \code{\link{scavenger_community}}: Scavenger community structure along environmental gradients
 #'   \item \code{\link{badger_energy}}: Energy expenditure data for European badgers with tuberculosis
-#'   \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
+#'   \item \code{\link{barnswallow_brightness}}: Plumage brightness data for barn swallows
+#'   \item \code{\link{berberis_treatment}}: Data on invasive Berberis management treatments
+#'   \item \code{\link{carrion_arrivals}}: Vertebrate scavenger visits to roe deer carrion
+#'   \item \code{\link{chimpanzee_cameras}}: Camera trap detection data for wild chimpanzees
 #'   \item \code{\link{dormouse_hibernation}}: Hibernation and reproduction data for edible dormice
+#'   \item \code{\link{Dsimulans_matechoice}}: Mate copying data for fruit flies
+#'   \item \code{\link{elephant_farmers}}: Agricultural use metrics for elephants
+#'   \item \code{\link{leafcutter_disturbance}}: Leaf-cutting ant herbivory under human disturbance
+#'   \item \code{\link{lion_reproduction}}: Reproductive data for Galapagos sea lions
+#'   \item \code{\link{magellanic_penguins}}: Long-term monitoring data on Magellanic penguins
+#'   \item \code{\link{pangolin_habitat}}: Habitat occupancy data for Chinese pangolins
+#'   \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
 #'   \item \code{\link{redpanda_moves}}: Movement patterns and weather effects on red pandas
+#'   \item \code{\link{scavenger_community}}: Scavenger community structure along environmental gradients
 #'   \item \code{\link{shark_fishing}}: Shark mortality predictions from fishing operations
+#'   \item \code{\link{vulture_diet}}: Diet composition analysis of African vultures
+#'   \item \code{\link{whale_brains}}: Brain size evolution data for cetaceans
 #' }
 #'
 #' All datasets are provided in tidy format, with factors appropriately coded,
