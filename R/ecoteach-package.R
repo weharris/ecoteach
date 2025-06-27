@@ -26,6 +26,7 @@
 #'   \item \code{\link{raccoondog_environment}}: Raccoon dog activity and environmental factors in China
 #'   \item \code{\link{dormouse_hibernation}}: Hibernation and reproduction data for edible dormice
 #'   \item \code{\link{redpanda_moves}}: Movement patterns and weather effects on red pandas
+#'   \item \code{\link{shark_fishing}}: Shark mortality predictions from fishing operations
 #' }
 #'
 #' All datasets are provided in tidy format, with factors appropriately coded,
